@@ -16,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-  Directory: any = 'http://localhost/apirestvh/public/uploads/';
+  Directory: any = 'https://apirestvh.herokuapp.com/api';
 
   reservacion: Boolean = true;
   evento: Boolean = false;
