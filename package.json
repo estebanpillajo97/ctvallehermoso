@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "npm start --prefix server",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "heroku-postbuild":"ng build --prod"
+    "heroku-prebuild": "npm install --prefix server && npm install",
+    "heroku-postbuild": "npm run build --prefix server && ng build --prod"
     
   },
   "private": true,
