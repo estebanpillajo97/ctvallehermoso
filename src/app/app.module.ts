@@ -68,7 +68,7 @@ import { EventoclienteActivarComponent } from './eventos/eventocliente-activar/e
 const routes: Routes = [
 
   //Usuarios
-  { path: 'usuarios', component: UsuarioComponent},
+  { path: 'usuarios', component: UsuarioComponent, canActivate: [AuthAdminGuard] },
   { path: 'crear_usuario', component: FormusuarioComponent },
   { path: 'editar_usuarios/:usu_id', component: EditusuariosComponent, canActivate: [AuthAdminGuard] },
   //Eventos
