@@ -7,7 +7,7 @@ import { MenusService } from 'src/app/services/menus.service';
 })
 export class MenusComponent implements OnInit {
 
-  Directory:any ='http://localhost/apirestvh/public/uploads/';
+  Directory:any ='https://apirestvh.herokuapp.com/api/uploads/';
   menus:any;
   p: any = 1;
   constructor(private menusService: MenusService) {

@@ -8,7 +8,7 @@ import { MenusService } from 'src/app/services/menus.service';
 })
 export class ListadoMenusComponent implements OnInit {
   menus:any;
-  Directory:any ='http://localhost/apirestvh/public/uploads/';
+  Directory:any ='https://apirestvh.herokuapp.com/api/uploads/';
   constructor(private menusService: MenusService) {this.getMenus(); }
 
   ngOnInit(): void {
