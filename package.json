@@ -4,11 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build",
+    "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-     "heroku-prebuild": "npm install --prefix server && npm install",
- "heroku-postbuild": "npm run build --prefix server && ng build --prod"
+    "test": "ng test"
     
   },
   "private": true,
