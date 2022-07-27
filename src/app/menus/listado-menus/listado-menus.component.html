@@ -16,7 +16,7 @@
             <tr *ngFor="let menus of menus">
 
                 <th>{{menus.men_id}}</th>
-                <td><img class="img" src="{{Directory}}{{menus.men_foto}}" width="200px" height="100px"></td>
+                <td><img class="img" src="https://apirestvh.herokuapp.com/uploads/{{menus.men_foto}}" width="200px" height="100px"></td>
                 <td>{{menus.men_descripcion}}</td>
                 <td><button mat-button class="btn btn-outline-dark" routerLink="/editar_menus/{{menus.men_id}}">
                         <i class="fa fa-pencil-square-o fa-lg"></i>

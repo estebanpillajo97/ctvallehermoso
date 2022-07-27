@@ -21,7 +21,7 @@
 <div class="row">
   <div class="col-md-4 col-sm-4" *ngFor="let menus of menus | paginate: { itemsPerPage: 6, currentPage: p }">
     <div class="card mb-4 box-shadow bg-gradiente">
-      <img class="img" src="{{Directory}}{{menus.men_foto}}" popover="{{menus.men_descripcion}}"
+      <img class="img" src="https://apirestvh.herokuapp.com/uploads/{{menus.men_foto}}" popover="{{menus.men_descripcion}}"
         triggers="mouseenter:mouseleave" popoverTitle="{{menus.men_nombre}}" placement="right">
 
       <div class="card-body row text-center align-items-center">
