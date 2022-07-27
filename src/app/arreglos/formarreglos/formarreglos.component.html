@@ -1,0 +1,68 @@
+<div class="card">
+    <div class="card-header">
+        Agregar Arreglo
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="formularioArreglos" (ngSubmit)="enviarDatosA()">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input name="" type="text" class="form-control" id="" formControlName="arr_nombre"
+                    aria-describedby="helpId" placeholder="Ingresar nombre">
+                <div class="alert-danger"
+                    *ngIf="getArr_Nombre('arr_nombre')?.invalid && (getArr_Nombre('arr_nombre')?.touched || getArr_Nombre('arr_nombre')?.dirty)">
+                    <div *ngIf="getArr_Nombre('arr_nombre')?.errors?.required">
+                        Nombre es requerido.
+                    </div>
+                    <div *ngIf="getArr_Nombre('arr_nombre')?.errors?.minlength">
+                        Mínimo 5 caracteres.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="">Descripción</label>
+                <input name="" type="text" class="form-control" id="" formControlName="arr_descripcion"
+                    placeholder="Ingresar descripción">
+                <div class="alert-danger"
+                    *ngIf="getArr_Descripcion('arr_descripcion')?.invalid && (getArr_Descripcion('arr_descripcion')?.touched || getArr_Descripcion('arr_descripcion')?.dirty)">
+                    <div *ngIf="getArr_Descripcion('arr_descripcion')?.errors?.required">
+                        Descripcion es requerida.
+                    </div>
+                    <div *ngIf="getArr_Descripcion('arr_descripcion')?.errors?.minlength">
+                        Mínimo 10 caracteres.
+                    </div>
+                    <div *ngIf="getArr_Descripcion('arr_descripcion')?.errors?.maxlength">
+                        Máximo 50 caracteres.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="">Seleccione el estado</label>
+                <select class="form-select form-select-sm" formControlName="arr_estado"
+                    aria-label=".form-select-sm example">
+                    <option value="" disabled selected> Seleccionar Estado </option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+                <div class="alert-danger"
+                    *ngIf="getArr_Estado('arr_estado')?.invalid && (getArr_Estado('arr_estado')?.touched)">
+                    <div *ngIf="getArr_Estado('arr_estado')?.errors?.required">
+                        Por favor escoja un estado
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button mat-button type="submit" class="btn btn-outline-success">
+                    <mat-icon>save</mat-icon> Guardar Datos
+                </button>
+                <button mat-button type="button" routerLink="/arreglos" class="btn btn-outline-secondary">
+                    <mat-icon>cancel</mat-icon> Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>

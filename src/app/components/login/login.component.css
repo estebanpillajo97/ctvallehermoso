@@ -1,0 +1,29 @@
+.block{
+    justify-content: center;
+    align-items: center;
+}
+form{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+
+}
+.inp{
+    width: 85%;
+    padding: 10px 15px;
+    margin: 10px;
+}
+.btns{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+}
+h2{
+    color: black;
+    font-family: sans-serif;
+    font-weight: 600;
+}

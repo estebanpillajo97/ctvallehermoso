@@ -1,0 +1,68 @@
+<div class="card">
+    <div class="card-header">
+        Agregar Evento
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="formularioEventos" (ngSubmit)="enviarDatosE()">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input name="" type="text" class="form-control" id="" formControlName="eve_nombre"
+                    aria-describedby="helpId" placeholder="Ingresar nombre">
+                <div class="alert-danger"
+                    *ngIf="getEve_Nombre('eve_nombre')?.invalid && (getEve_Nombre('eve_nombre')?.touched || getEve_Nombre('eve_nombre')?.dirty)">
+                    <div *ngIf="getEve_Nombre('eve_nombre')?.errors?.required">
+                        Nombre es requerido.
+                    </div>
+                    <div *ngIf="getEve_Nombre('eve_nombre')?.errors?.minlength">
+                        Mínimo 5 caracteres.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="">Descripción</label>
+                <input name="" type="text" class="form-control" id="" formControlName="eve_descripcion"
+                    placeholder="Ingresar descripción">
+                <div class="alert-danger"
+                    *ngIf="getEve_Descripcion('eve_descripcion')?.invalid && (getEve_Descripcion('eve_descripcion')?.touched || getEve_Descripcion('eve_descripcion')?.dirty)">
+                    <div *ngIf="getEve_Descripcion('eve_descripcion')?.errors?.required">
+                        Descripcion es requerida.
+                    </div>
+                    <div *ngIf="getEve_Descripcion('eve_descripcion')?.errors?.minlength">
+                        Mínimo 10 caracteres.
+                    </div>
+                    <div *ngIf="getEve_Descripcion('eve_descripcion')?.errors?.maxlength">
+                        Máximo 100 caracteres.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="">Seleccione el estado</label>
+                <select class="form-select form-select-sm" formControlName="eve_estado"
+                    aria-label=".form-select-sm example">
+                    <option value="" disabled selected> Seleccionar Estado </option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+                <div class="alert-danger"
+                    *ngIf="getEve_Estado('eve_estado')?.invalid && (getEve_Estado('eve_estado')?.touched)">
+                    <div *ngIf="getEve_Estado('eve_estado')?.errors?.required">
+                        Por favor escoja un estado
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button mat-button type="submit" class="btn btn-outline-success">
+                    <mat-icon>save</mat-icon> Guardar Datos
+                </button>
+                <button mat-button type="button" routerLink="/eventos" class="btn btn-outline-secondary">
+                    <mat-icon>cancel</mat-icon> Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>

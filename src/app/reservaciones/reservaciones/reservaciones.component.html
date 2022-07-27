@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-md" style="align-items: center;">
+  <ul class="navbar-nav me-auto">
+    <li class="nav-item">
+      <h1>Lista tipo de reservaciones</h1>
+    </li>
+  </ul>
+  <div>
+    <ul class="navbar-nav me-auto mb-0 mb-md-0">
+      <li class="nav-item">
+        <button mat-button class="btn btn-outline-dark">
+          <i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i> Exportar PDF
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="col">
+  <button mat-button type="button" class="btn btn-outline-primary" routerLink="/crear_reservaciones">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle"
+      viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+    </svg> <span> Crear Reservación</span>
+  </button>
+</div>
+<div>
+  <!-- Tabla de Reservas -->
+  <table class="table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let reservacion of reservaciones">
+
+        <th>{{reservacion.res_id}}</th>
+        <td>{{reservacion.res_nombre}}</td>
+        <td>{{reservacion.res_descripcion}}</td>
+        <td>
+          <button mat-button class="btn btn-outline-warning" routerLink="/editar_reservaciones/{{reservacion.res_id}}">
+            <i class="fa fa-pencil-square-o fa-lg"></i>
+          </button>
+          <button mat-button class="btn btn-outline-success " *ngIf="reservacion.res_estado=='Activo'"
+            (click)="inactivarReservacion(reservacion.res_id)">
+            <i class="fa fa-toggle-on fa-lg"></i> Activo
+          </button>
+          <button mat-button class="btn btn-outline-danger" *ngIf="reservacion.res_estado=='Inactivo'"
+            (click)="activarReservacion(reservacion.res_id)">
+            <i class="fa fa-toggle-off fa-lg"></i> Inactivo
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

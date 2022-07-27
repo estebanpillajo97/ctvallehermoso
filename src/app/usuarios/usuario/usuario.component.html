@@ -1,0 +1,65 @@
+<div class="col">
+  <h1>Lista de Usuarios Asignados</h1>
+
+  <button mat-button type="button" class="btn btn-outline-primary" routerLink="/crear_usuario">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle"
+      viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+    </svg> <span> Crear usuario</span>
+  </button>
+<p></p>
+</div>
+<!-- Filtro de búsqueda -->
+<div class="busqueda-filtro ">
+  <div class="row">
+    <input type="text" class="filtro form-control" [(ngModel)]="searchText" placeholder="Búsqueda por nombre, id, cedula">
+  </div>
+</div>
+<p></p>
+<!-- Tabla de Usuarios -->
+<div>
+
+  <table class="table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Id</th>
+        <th scope="col">Nombres / Apellidos</th>
+        <th scope="col">Cédula</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Rol</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage: 10, currentPage: p } | filter:searchText">
+
+        <th>{{usuario.usu_id}}</th>
+        <td>{{usuario.usu_nombres}}</td>
+        <td>{{usuario.usu_cedula}}</td>
+        <td>{{usuario.usu_direccion}}</td>
+        <td>{{usuario.usu_telefono}}</td>
+        <td>{{usuario.usu_usuario}}</td>
+        <td>{{usuario.rol_nombre}}</td>
+        <td>
+          <button mat-button class="btn btn-outline-warning" routerLink="/editar_usuarios/{{usuario.usu_id}}">
+            <i class="fa fa-pencil-square-o fa-lg"></i>
+          </button>
+          <button mat-button class="btn btn-outline-success" *ngIf="usuario.usu_estado=='Activo'"
+            (click)="inactivarUsuarios(usuario.usu_id)">
+            <i class="fa fa-toggle-on fa-lg"></i> Activo
+          </button>
+          <button mat-button class="btn btn-outline-danger" *ngIf="usuario.usu_estado=='Inactivo'"
+            (click)="activarUsuario(usuario.usu_id)">
+            <i class="fa fa-toggle-off fa-lg"></i> Inactivo
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

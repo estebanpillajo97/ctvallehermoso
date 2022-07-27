@@ -1,0 +1,432 @@
+<div class="row justify-content-left align-items-center">
+    <div class="col-sm-6 p-5 container-restaurant-nombre">
+        <p class="title">Complejo Turístico</p>
+        <br>
+        <h1 class="vallehermoso">Valle <br>Hermoso</h1>
+    </div>
+    <div class="col-sm-6">
+        <figure>
+            <img src="../../assets/img/portada.png" class="img-fluid mx-auto d-block">
+        </figure>
+    </div>
+</div>
+<div class="card mt-1" style="background: white ;">
+    <h2 class="reservas">RESERVAS DE MESA O EVENTO</h2>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="contenedor_botones">
+                <button class="boton cinco" type="button" (click)="mostrarReserva()">
+                    <div class="icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-journal"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
+                            <path
+                                d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
+                        </svg>
+                    </div><span>Reservar Mesa</span>
+                </button>   
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="contenedor_botones">
+                <button class="boton cinco" type="button" (click)="mostrarEvento()">
+                    <div class="icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-calendar-event"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" />
+                            <path
+                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                        </svg>
+                    </div><span>Resevar Evento</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        
+        <div class="col-sm-6 border-right">
+            
+            <div>
+                <br>
+                <form [formGroup]="formularioReserva" action="" *ngIf="reservacion==true"
+                    (ngSubmit)="AgregarReservaCliente()">
+                    <div class="row input-group">
+                        <div class="col-sm-5">
+                            <label for="">Nombre y apellidos</label>
+                            <input type="text" class="form-control" formControlName="rc_nombreCliente"
+                                placeholder="Ingrese su nombre">
+                            <div class="text-danger"
+                                *ngIf="getRC_Nombres('rc_nombreCliente')?.invalid && (getRC_Nombres('rc_nombreCliente')?.touched || getRC_Nombres('rc_nombreCliente')?.dirty)">
+                                <div *ngIf="getRC_Nombres('rc_nombreCliente')?.errors?.required">
+                                    Nombre y apellidos es requerido.
+                                </div>
+                                <div *ngIf="getRC_Nombres('rc_nombreCliente')?.errors?.minlength">
+                                    Mínimo 10 caracteres.
+                                </div>
+                                <div *ngIf="getRC_Nombres('rc_nombreCliente')?.errors?.maxlength">
+                                    Máximo 60 caracteres.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="">Cédula</label>
+                            <input type="text" class="form-control" name="cedula" placeholder="1700000001"
+                                formControlName="rc_cedula">
+                            <div class="text-danger"
+                                *ngIf="getRC_Cedula('rc_cedula')?.invalid && (getRC_Cedula('rc_cedula')?.touched || getRC_Cedula('rc_cedula')?.dirty)">
+                                <div *ngIf="getRC_Cedula('rc_cedula')?.errors?.required">
+                                    Cédula es requerida.
+                                </div>
+                                <div *ngIf="getRC_Cedula('rc_cedula')?.errors?.minlength">
+                                    Mínimo 10 caracteres.
+                                </div>
+                                <div *ngIf="getRC_Cedula('rc_cedula')?.errors?.maxlength">
+                                    Máximo 13 caracteres.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="">Tipo Cédula</label>
+                            <select name="" id="" class="form-select" formControlName="tc_id">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <option *ngFor="let tipo_cedula of tipo_cedula" value="{{tipo_cedula.tc_id}}">
+                                    {{tipo_cedula.tc_tipoCedula}}</option>
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="getRC_tipoCedula('tc_id')?.invalid && getRC_tipoCedula('tc_id')?.touched">
+                                <div *ngIf="getRC_tipoCedula('tc_id')?.errors?.required">
+                                    Por favor escoga tipo cédula
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row input-group">
+                        <div class="col-sm-6">
+                            <label for="">Teléfono</label>
+                            <input type="text" class="form-control" formControlName="rc_celular"
+                                placeholder="Celular/Convencional">
+                            <div class="text-danger"
+                                *ngIf="getRC_Telefono('rc_celular')?.invalid && (getRC_Telefono('rc_celular')?.touched || getRC_Telefono('rc_celular')?.dirty)">
+                                <div *ngIf="getRC_Telefono('rc_celular')?.errors?.required">
+                                    Teléfono es requerido.
+                                </div>
+                                <div *ngIf="getRC_Telefono('rc_celular')?.errors?.minlength">
+                                    Mínimo 6 caracteres.
+                                </div>
+                                <div *ngIf="getRC_Telefono('rc_celular')?.errors?.maxlength">
+                                    Máximo 25 caracteres.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="">Tipo de reserva</label>
+                            <select name="" id="" formControlName="res_id" class="form-select">
+                                <option value="" disabled selected>Seleccionar reserva</option>
+                                <option *ngFor="let reserva of reserva" value="{{reserva.res_id}}">
+                                    {{reserva.res_nombre}}</option>
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="getRC_tipoReserva('res_id')?.invalid && getRC_tipoReserva('res_id')?.touched">
+                                <div *ngIf="getRC_tipoReserva('res_id')?.errors?.required">
+                                    Por favor escoga tipo de reserva
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row input-group">
+                        <div class="col-sm-4">
+                            <label for="">Fecha</label>
+                            <input type="date" class="form-control" formControlName="rc_fecha" name="" id="">
+                            <div class="text-danger"
+                                *ngIf="getRC_Fecha('rc_fecha')?.invalid && getRC_Fecha('rc_fecha')?.touched">
+                                <div *ngIf="getRC_Fecha('rc_fecha')?.errors?.required">
+                                    Por favor escoga la fecha
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="">Hora</label>
+                            <input type="time" class="form-control" name="hora" value="11:00" min="11:00" max="17:00"
+                                step="3600" formControlName="rc_hora" />
+                            <div class="text-danger"
+                                *ngIf="getRC_Hora('rc_hora')?.invalid && getRC_Hora('rc_hora')?.touched">
+                                <div *ngIf="getRC_Hora('rc_hora')?.errors?.required">
+                                    Por favor escoga la hora
+                                </div>
+                            </div>
+                            <small class="text-secondary">Desde las 11am hasta las 17pm</small>
+                        </div>
+                        <div class="col-sm-5">
+                            <label for="">Número de personas</label>
+                            <select formControlName="np_id" class="form-select">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <option *ngFor="let numpersonasres of numPersonasRes" value="{{numpersonasres.np_id}}">{{numpersonasres.np_numeroPersonas}}</option>
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="getRC_numPersonas('np_id')?.invalid && getRC_numPersonas('np_id')?.touched">
+                                <div *ngIf="getRC_numPersonas('np_id')?.errors?.required">
+                                    Por favor escoga el número de personas
+                                </div>
+                            </div>
+                            <small class="text-danger">En el caso de ser más, explicar en descripción</small>
+                        </div>
+                    </div>
+                    <div class="row input-group">
+                        <div class="col-sm-12">
+                            <label for="">Descripción</label>
+                            <textarea name="" id="" cols="5" rows="1" formControlName="rc_descripcion"
+                                class="form-control"></textarea>
+                            <div class="text-danger"
+                                *ngIf="getRC_descripcion('rc_descripcion')?.invalid && (getRC_descripcion('rc_descripcion')?.touched || getRC_descripcion('rc_descripcion')?.dirty)">
+                                <div *ngIf="getRC_descripcion('rc_descripcion')?.errors?.minlength">
+                                    Mínimo 5 caracteres.
+                                </div>
+                                <div *ngIf="getRC_descripcion('rc_descripcion')?.errors?.maxlength">
+                                    Máximo 255 caracteres.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button mat-button type="submit" class="btn btn-outline-success mx-auto d-block">
+                        <mat-icon>save</mat-icon> Reservar Mesa
+                    </button>
+                </form>
+                <form action=""*ngIf="evento==true">
+                    <img src="../../assets/img/valle_Hermoso.jpg" alt="" class="img-thumbnail mx-auto d-block">
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-6 border-right evento" >
+
+            <br>
+                <form [formGroup]="formularioEvento" action="" *ngIf="evento==true" (ngSubmit)="AgregarEventoCliente()">
+                    <div class="row input-group">
+                        <div class="col-sm-5">
+                            <label for="">Nombre y apellidos</label>
+                            <input type="text" class="form-control" formControlName="ec_nombreCliente"
+                                placeholder="Ingrese su nombre">
+                            <div class="text-danger"
+                                *ngIf="getEC_Nombres('ec_nombreCliente')?.invalid && (getEC_Nombres('ec_nombreCliente')?.touched || getEC_Nombres('ec_nombreCliente')?.dirty)">
+                                <div *ngIf="getEC_Nombres('ec_nombreCliente')?.errors?.required">
+                                    Nombre y apellidos es requerido.
+                                </div>
+                                <div *ngIf="getEC_Nombres('ec_nombreCliente')?.errors?.minlength">
+                                    Mínimo 10 caracteres.
+                                </div>
+                                <div *ngIf="getEC_Nombres('ec_nombreCliente')?.errors?.maxlength">
+                                    Máximo 60 caracteres.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="">Cédula</label>
+                            <input type="text" value="" class="form-control" name="cedula" formControlName="ec_cedula"
+                                placeholder="1700000001">
+                            <div class="text-danger"
+                                *ngIf="getEC_Cedula('ec_cedula')?.invalid && (getEC_Cedula('ec_cedula')?.touched || getEC_Cedula('ec_cedula')?.dirty)">
+                                <div *ngIf="getEC_Cedula('ec_cedula')?.errors?.required">
+                                    Cédula es requerida.
+                                </div>
+                                <div *ngIf="getEC_Cedula('ec_cedula')?.errors?.minlength">
+                                    Mínimo 10 caracteres.
+                                </div>
+                                <div *ngIf="getEC_Cedula('ec_cedula')?.errors?.maxlength">
+                                    Máximo 13 caracteres.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="">Tipo Cédula</label>
+                            <select name="" id="" class="form-select" formControlName="tc_id">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <option *ngFor="let tipo_cedula of tipo_cedula" value="{{tipo_cedula.tc_id}}">
+                                    {{tipo_cedula.tc_tipoCedula}}
+                                </option>
+
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="getEC_tipoCedula('tc_id')?.invalid && getEC_tipoCedula('tc_id')?.touched">
+                                <div *ngIf="getEC_tipoCedula('tc_id')?.errors?.required">
+                                    Por favor escoga tipo cédula
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row input-group">
+                        <div class="col-sm-4">
+                            <label for="">Teléfono</label>
+                            <input type="text" class="form-control" formControlName="ec_celular"
+                                placeholder="Celular/Convencional">
+                            <div class="text-danger"
+                                *ngIf="getEC_Telefono('ec_celular')?.invalid && (getEC_Telefono('ec_celular')?.touched || getEC_Telefono('ec_celular')?.dirty)">
+                                <div *ngIf="getEC_Telefono('ec_celular')?.errors?.required">
+                                    Teléfono es requerido.
+                                </div>
+                                <div *ngIf="getEC_Telefono('ec_celular')?.errors?.minlength">
+                                    Mínimo 6 caracteres.
+                                </div>
+                                <div *ngIf="getEC_Telefono('ec_celular')?.errors?.maxlength">
+                                    Máximo 25 caracteres.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="">Tipo de arreglo</label>
+                            <select name="" id="" class="form-select" formControlName="arr_id">
+                                <option value="" disabled selected>Seleccionar arreglo</option>
+                                <option *ngFor="let arreglos of arreglos" value="{{arreglos.arr_id}}">
+                                    {{arreglos.arr_nombre}}</option>
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="getEC_tipoArreglo('arr_id')?.invalid && getEC_tipoArreglo('arr_id')?.touched">
+                                <div *ngIf="getEC_tipoArreglo('arr_id')?.errors?.required">
+                                    Por favor escoga el tipo arreglo
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="">Tipo de evento</label>
+                            <select name="" id="" class="form-select" formControlName="eve_id">
+                                <option value="" disabled selected>Seleccionar evento</option>
+                                <option *ngFor="let eventos of eventos" value="{{eventos.eve_id}}">
+                                    {{eventos.eve_nombre}}</option>
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="getEC_tipoEvento('eve_id')?.invalid && getEC_tipoEvento('eve_id')?.touched">
+                                <div *ngIf="getEC_tipoEvento('eve_id')?.errors?.required">
+                                    Por favor escoga el evento
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row input-group">
+                        <div class="col-sm-4">
+                            <label for="">Fecha</label>
+                            <input type="date" class="form-control" name="" id="" formControlName="ec_fecha">
+                            <div class="text-danger"
+                                *ngIf="getEC_Fecha('ec_fecha')?.invalid && getEC_Fecha('ec_fecha')?.touched">
+                                <div *ngIf="getEC_Fecha('ec_fecha')?.errors?.required">
+                                    Por favor escoga la fecha
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="">Hora</label>
+                            <input type="time" class="form-control" name="hora" value="11:00" min="11:00" max="20:00"
+                                step="600" formControlName="ec_hora" />
+                            <div class="text-danger"
+                                *ngIf="getEC_Hora('ec_hora')?.invalid && getEC_Hora('ec_hora')?.touched">
+                                <div *ngIf="getEC_Hora('ec_hora')?.errors?.required">
+                                    Por favor escoga la hora
+                                </div>
+                            </div>
+                            <small class="text-secondary">Desde las 11am hasta las 20pm</small>
+                        </div>
+                        
+                    </div>
+                    <div class="row input-group">
+                        <div class="col-sm-4">
+                            <label for="">Número de adultos</label>
+                            <select name="" id="" formControlName="na_id" class="form-select">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <option *ngFor="let numAdultos of numAdultos" value="{{numAdultos.na_id}}">{{numAdultos.na_numeroAdultos}}</option>
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="getEC_numAdultos('na_id')?.invalid && getEC_numAdultos('na_id')?.touched">
+                                <div *ngIf="getEC_numAdultos('na_id')?.errors?.required">
+                                    Por favor escoga el número de personas
+                                </div>
+                            </div>
+                            <small class="text-danger">En el caso de ser más, explicar en descripción</small>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="">Número de niñ@s</label>
+                            <select name="" id="" formControlName="nn_id" class="form-select">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <option *ngFor="let numNinios of numNinios" value="{{numNinios.nn_id}}">{{numNinios.nn_numeroNinios}}</option>
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="getEC_numNinios('nn_id')?.invalid && getEC_numNinios('nn_id')?.touched">
+                                <div *ngIf="getEC_numNinios('nn_id')?.errors?.required">
+                                    Por favor escoga el número de personas
+                                </div>
+                            </div>
+                            <small class="text-danger">En el caso de ser más, explicar en descripción</small>
+                        </div>
+                    </div>
+                    <div class="row input-group">
+                        <div class="col-sm-6">
+                            <label for="">Menus</label>
+                            <select [(ngModel)]="selectedMenusValue.men_id" (change)="ChangeMenu($event)"
+                                [ngModelOptions]="{standalone: true}" class="form-select">
+                                <option disabled selected>Seleccionar</option>
+                                <option *ngFor="let item of menus" value="{{item.men_id}}">
+                                    {{item.men_nombre}} </option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="">Submenus</label>
+                            <select formControlName="sm_id" class="form-select">
+                                <option value="" disabled selected>Seleccionar</option>
+                                <option *ngFor="let item of submenuses" value="{{item.sm_id}}">
+                                    {{item.sm_nombre}} ${{item.sm_precio}}</option>
+                            </select>
+                            <div class="text-danger"
+                                *ngIf="getEC_submenus('sm_id')?.invalid && getEC_submenus('sm_id')?.touched">
+                                <div *ngIf="getEC_submenus('sm_id')?.errors?.required">
+                                    Por favor escoga el menú
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row input-group">
+                        <div class="col-sm-12">
+                            <label for="">Descripción</label>
+                            <textarea name="" id="" cols="5" rows="1" formControlName="ec_descripcion"
+                                class="form-control"></textarea>
+                            <div class="text-danger"
+                                *ngIf="getEC_descripcion('ec_descripcion')?.invalid && (getEC_descripcion('ec_descripcion')?.touched || getEC_descripcion('ec_descripcion')?.dirty)">
+                                <div *ngIf="getEC_descripcion('ec_descripcion')?.errors?.minlength">
+                                    Mínimo 5 caracteres.
+                                </div>
+                                <div *ngIf="getEC_descripcion('ec_descripcion')?.errors?.maxlength">
+                                    Máximo 255 caracteres.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <br>
+                    <button mat-button type="submit" class="btn btn-outline-success mx-auto d-block">
+                        <mat-icon>save</mat-icon> Reservar Evento
+                    </button>
+                </form>
+                <form action="" *ngIf="reservacion==true">
+                    <img src="../../assets/img/Logo_ValleHermoso.png" alt="" class="img-thumbnail mx-auto d-block">
+                </form>
+
+        </div>
+    </div>
+</div>
+<br>
+<!--Muestra los menús que ofrece-->
+<h1 class="text-center te_ofrecemos">TE OFRECEMOS</h1>
+<div class="row">
+    <div class="col-md-3 col-sm-3" *ngFor="let menus of menus">
+        <div class="card mb-4 box-shadow bg-gradiente text-white">
+            <img src="{{Directory}}{{menus.men_foto}}" alt="" class="car-img-top">
+            <div class="card-body row justify-content-center align-items-center">
+                <h1>{{menus.men_nombre}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!---->
+<p></p>

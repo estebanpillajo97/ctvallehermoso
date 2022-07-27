@@ -1,0 +1,70 @@
+<div class="card">
+    <div class="card-header">
+        Agregar Menú
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="formularioRoles" (ngSubmit)="CrearRol()">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input name="" type="text" class="form-control" id="" formControlName="rol_nombre"
+                    aria-describedby="helpId" placeholder="Ingresar nombre">
+                <div class="alert-danger"
+                    *ngIf="getRol_Nombre('rol_nombre')?.invalid && (getRol_Nombre('rol_nombre')?.touched || getRol_Nombre('rol_nombre')?.dirty)">
+                    <div *ngIf="getRol_Nombre('rol_nombre')?.errors?.required">
+                        Nombre es requerido.
+                    </div>
+                    <div *ngIf="getRol_Nombre('rol_nombre')?.errors?.minlength">
+                        Mínimo 5 caracteres.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="">Descripción</label>
+                <input name="" type="text" class="form-control" id="" formControlName="rol_descripcion"
+                    placeholder="Ingresar descripcion">
+                <div class="alert-danger"
+                    *ngIf="getRol_Descripcion('rol_descripcion')?.invalid && (getRol_Descripcion('rol_descripcion')?.touched || getRol_Descripcion('rol_descripcion')?.dirty)">
+                    <div *ngIf="getRol_Descripcion('rol_descripcion')?.errors?.required">
+                        Descripcion es requerida.
+                    </div>
+                    <div *ngIf="getRol_Descripcion('rol_descripcion')?.errors?.minlength">
+                        Mínimo 10 caracteres.
+                    </div>
+                    <div *ngIf="getRol_Descripcion('rol_descripcion')?.errors?.maxlength">
+                        Máximo 50 caracteres.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="">Seleccione el estado</label>
+                <select class="form-select form-select-sm" formControlName="rol_estado"
+                    aria-label=".form-select-sm example">
+                    <option value="" disabled selected> Seleccionar Estado</option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+                <div class="alert-danger"
+                    *ngIf="getRol_Estado('rol_estado')?.invalid && (getRol_Estado('rol_estado')?.touched)">
+                    <div *ngIf="getRol_Estado('rol_estado')?.errors?.required">
+                        Por favor escoja un estado
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
+                <button mat-button type="submit" class="btn btn-outline-success">
+                    <mat-icon>save</mat-icon> Guardar Datos
+                </button>
+                <button mat-button type="button" routerLink="/roles" (click)="Cancelar()"
+                    class="btn btn-outline-secondary">
+                    <mat-icon>cancel</mat-icon> Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>

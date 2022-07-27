@@ -1,0 +1,36 @@
+<!-- Tabla de Asignar Rol -->
+<div>
+
+    <table class="table">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">Id</th>
+          <th scope="col">Nombres / Apellidos</th>
+          <th scope="col">Cédula</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let usuario of usuarios">
+  
+          <th>{{usuario.usu_id}}</th>
+          <td>{{usuario.usu_nombres}}</td>
+          <td>{{usuario.usu_cedula}}</td>
+          <td>{{usuario.usu_direccion}}</td>
+          <td>{{usuario.usu_telefono}}</td>
+          <td>{{usuario.usu_usuario}}</td>
+          <td>{{usuario.rol_nombre}}</td>
+          <td>
+            <button mat-button class="btn btn-outline-warning" routerLink="/editar_usuarios/{{usuario.usu_id}}">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </div>

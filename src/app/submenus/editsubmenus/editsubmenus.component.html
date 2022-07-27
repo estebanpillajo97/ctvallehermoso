@@ -1,0 +1,57 @@
+<div class="card">
+    <div class="card-header">
+        Agregar usuario
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="editarSubmenu" (ngSubmit)="editarSubmenus()">
+            <div class="mb-3">
+                <label for="">Seleccione el Menú</label>
+                <select class="form-select form-select-sm" formControlName="men_id"
+                    aria-label=".form-select-sm example">
+                    <option value="" disabled selected> Seleccionar </option>
+                    <option *ngFor="let menu of menu" value="{{menu.men_id}}">{{menu.men_nombre}}</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input name="" type="text" class="form-control" id="" formControlName="sm_nombre"
+                    aria-describedby="helpId" placeholder="Ingresar nombre">
+            </div>
+
+            <div class="mb-3">
+                <label for="">Descripción</label>
+                <input name="" type="text" class="form-control" id="" formControlName="sm_descripcion"
+                    placeholder="Ingresar descripcion">
+            </div>
+
+            <div class="mb-3">
+                <label for="">Precio</label>
+                <input name="" type="text" class="form-control" id="" formControlName="sm_precio"
+                    placeholder="Ingresar precio 0.00">
+            </div>
+
+            <div class="mb-3">
+                <label for="">Seleccione el estado</label>
+                <select class="form-select form-select-sm" formControlName="sm_estado"
+                    aria-label=".form-select-sm example">
+                    <option value="" disabled selected> Seleccionar </option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+            </div>
+
+            <div>
+
+                <button mat-button type="submit" class="btn btn-outline-success">
+                    <mat-icon>save</mat-icon> Guardar Datos
+                </button>
+                <button mat-button type="button" routerLink="/submenus" class="btn btn-outline-secondary">
+                    <mat-icon>cancel</mat-icon> Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>

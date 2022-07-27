@@ -1,0 +1,65 @@
+<div class="card">
+    <div class="card-header">
+        Agregar Reservación
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="formularioReservaciones" (ngSubmit)="enviarDatosR()">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input name="" type="text" class="form-control" id="" formControlName="res_nombre"
+                    aria-describedby="helpId" placeholder="Ingresar nombre">
+                <div class="alert-danger"
+                    *ngIf="getRes_Nombre('res_nombre')?.invalid && (getRes_Nombre('res_nombre')?.touched || getRes_Nombre('res_nombre')?.dirty)">
+                    <div *ngIf="getRes_Nombre('res_nombre')?.errors?.required">
+                        Nombre es requerido.
+                    </div>
+                    <div *ngIf="getRes_Nombre('res_nombre')?.errors?.minlength">
+                        Mínimo 5 caracteres.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="">Descripción</label>
+                <input name="" type="text" class="form-control" id="" formControlName="res_descripcion"
+                    placeholder="Ingresar descripción">
+                <div class="alert-danger"
+                    *ngIf="getRes_Descripcion('res_descripcion')?.invalid && (getRes_Descripcion('res_descripcion')?.touched || getRes_Descripcion('res_descripcion')?.dirty)">
+                    <div *ngIf="getRes_Descripcion('res_descripcion')?.errors?.required">
+                        Descripcion es requerida.
+                    </div>
+                    <div *ngIf="getRes_Descripcion('res_descripcion')?.errors?.minlength">
+                        Mínimo 10 caracteres.
+                    </div>
+                    <div *ngIf="getRes_Descripcion('res_descripcion')?.errors?.maxlength">
+                        Máximo 50 caracteres.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="">Seleccione el estado</label>
+                <select class="form-select form-select-sm" formControlName="res_estado"
+                    aria-label=".form-select-sm example">
+                    <option value="" disabled selected> Seleccionar Estado </option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+                <div class="alert-danger" *ngIf="(getRes_Estado('res_estado')?.errors?.required)">
+                    Por favor escoja el estado.
+                </div>
+            </div>
+            <div>
+
+                <button mat-button type="submit" class="btn btn-outline-success">
+                    <mat-icon>save</mat-icon> Guardar Datos
+                </button>
+                <button mat-button type="button" routerLink="/reservaciones" class="btn btn-outline-secondary">
+                    <mat-icon>cancel</mat-icon> Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>

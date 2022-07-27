@@ -1,0 +1,9 @@
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+}
+.btn span{
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}

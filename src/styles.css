@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* You can add global styles to this file, and also import other style files */
+.wrapper{
+    max-width: 1200px;
+    width: 120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+button{
+    cursor: pointer;
+    
+}
+
+button:disabled{
+    background-color: rgb(66, 61, 61);
+    font-weight: bold;
+    opacity: 1;
+    color: blue;
+}
+.block{
+    width: 320px;
+    height: 350px;
+    display: flex;
+}
+.block1{
+    width: 320px;
+    background: linear-gradient(270deg,rgb(206, 218, 211),rgba(77, 158, 57));
+    text-align: center;
+    padding-top: 10px;
+}

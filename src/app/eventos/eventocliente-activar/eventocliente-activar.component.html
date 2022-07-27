@@ -1,0 +1,97 @@
+<div>
+    <h1>Activar evento</h1>
+</div>
+<form [formGroup]="formularioEvento" action="">
+    <div class="row input-group">
+        <div class="col-sm-6">
+            <label for="">Nombre y apellidos</label>
+            <input type="text" class="form-control" formControlName="ec_nombreCliente" placeholder="Ingrese su nombre">
+        </div>
+        <div class="col-sm-3">
+            <label for="">Cédula</label>
+            <input type="text" value="" class="form-control" name="cedula" formControlName="ec_cedula"
+                placeholder="1700000001">
+
+        </div>
+        <div class="col-sm-3">
+            <label for="">Tipo Cédula</label>
+            <select name="" id="" class="form-select" formControlName="tc_id">
+                <option value="" disabled selected>Seleccionar</option>
+                <option *ngFor="let tipocedula of tipocedula">{{tipocedula.tc_tipoCedula}}</option>
+
+            </select>
+
+        </div>
+    </div>
+    <p></p>
+    <div class="row input-group">
+        <div class="col-sm-4">
+            <label for="">Teléfono</label>
+            <input type="text" class="form-control" formControlName="ec_celular" placeholder="# Celular">
+        </div>
+        <div class="col-sm-4">
+            <label for="">Tipo de arreglo</label>
+            <select name="" id="" class="form-select" formControlName="arr_id">
+                <option value="" disabled selected>Seleccionar arreglo</option>
+                <option *ngFor="let arreglos of arreglos" value="{{arreglos.arr_id}}">
+                    {{arreglos.arr_nombre}}</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <label for="">Tipo de evento</label>
+            <select name="" id="" class="form-select" formControlName="eve_id">
+                <option value="" disabled selected>Seleccionar evento</option>
+                <option *ngFor="let eventos of eventos" value="{{eventos.eve_id}}">
+                    {{eventos.eve_nombre}}</option>
+            </select>
+        </div>
+    </div>
+    <p></p>
+    <div class="row input-group">
+        <div class="col-sm-2">
+            <label for="">Fecha</label>
+            <input type="date" class="form-control" name="" id="" formControlName="ec_fecha">
+        </div>
+        <div class="col-sm-2">
+            <label for="">Hora</label>
+            <input type="time" class="form-control" name="hora" value="11:00" min="11:00" max="20:00" step="600"
+                formControlName="ec_hora" />
+            <small class="text-secondary">Desde las 11am hasta las 20pm</small>
+        </div>
+        <div class="col-sm-3">
+            <label for="">Número de adultos</label>
+            <select name="" id="" formControlName="na_id" class="form-select">
+                <option value="" disabled selected>Seleccionar</option>
+                <option *ngFor="let numAdultos of numAdultos" value="{{numAdultos.na_id}}">{{numAdultos.na_numeroAdultos}}</option>
+
+            </select>
+            <small class="text-danger">En el caso de ser más, explicar en descripción</small>
+        </div>
+        <div class="col-sm-3">
+            <label for="">Número de niños</label>
+            <select name="" id="" formControlName="nn_id" class="form-select">
+                <option value="" disabled selected>Seleccionar</option>
+                <option *ngFor="let numNinios of numNinios" value="{{numNinios.nn_id}}">{{numNinios.nn_numeroNinios}}</option>
+
+            </select>
+            <small class="text-danger">En el caso de ser más, explicar en descripción</small>
+        </div>
+    </div>
+    <div class="row input-group">
+        <div class="col-sm-8">
+            <label for="">Descripción</label>
+            <textarea name="" id="" cols="5" rows="1" formControlName="ec_descripcion" class="form-control"></textarea>
+
+        </div>
+        <div class="col-sm-4">
+            <label for="">Seleccione el estado</label>
+            <select class="form-select form-select-sm" formControlName="ec_estado" aria-label=".form-select-sm example">
+                <option value="" disabled selected> Seleccionar </option>
+                <option>Activo</option>
+                <option>Inactivo</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <input type="submit" (click)="modificarEventoCliente()" class="btn btn-success mx-auto d-block" value="Enviar">
+</form>

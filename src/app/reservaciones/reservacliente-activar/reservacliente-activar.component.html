@@ -1,0 +1,79 @@
+<div>
+    <h1>Activar reservación</h1>
+</div>
+<form [formGroup]="formularioReserva" action="">
+    <div class="row input-group">
+        <div class="col-sm-4">
+            <label for="">Nombre y apellidos</label>
+            <input type="text" class="form-control" formControlName="rc_nombreCliente" placeholder="Ingrese su nombre">
+        </div>
+        <div class="col-sm-4">
+            <label for="">Cédula</label>
+            <input type="text" class="form-control" name="cedula" placeholder="1700000001" formControlName="rc_cedula">
+        </div>
+        <div class="col-sm-4">
+            <label for="">Tipo de cédula</label>
+            <select name="" id="" formControlName="tc_id" class="form-select">
+                <option value="" disabled selected>Seleccionar cédula</option>
+                <option *ngFor="let tipocedula of tipocedula" value="{{tipocedula.tc_id}}">
+                    {{tipocedula.tc_tipoCedula}}</option>
+            </select>
+        </div>
+    </div>
+    <p></p>
+    <div class="row input-group">
+        <div class="col-sm-6">
+            <label for="">Teléfono</label>
+            <input type="text" class="form-control" formControlName="rc_celular" placeholder="# Celular">
+        </div>
+        <div class="col-sm-6">
+            <label for="">Tipo de reserva</label>
+            <select name="" id="" formControlName="res_id" class="form-select">
+                <option value="" disabled selected>Seleccionar reserva</option>
+                <option *ngFor="let reserva of reserva" value="{{reserva.res_id}}">
+                    {{reserva.res_nombre}}</option>
+            </select>
+        </div>
+    </div>
+    <p></p>
+    <div class="row input-group">
+        <div class="col-sm-4">
+            <label for="">Fecha</label>
+            <input type="date" class="form-control" formControlName="rc_fecha" name="" id="">
+        </div>
+        <div class="col-sm-3">
+            <label for="">Hora</label>
+            <input type="time" class="form-control" name="hora" value="11:00" min="11:00" max="17:00" step="3600"
+                formControlName="rc_hora" />
+            <small class="text-secondary">Desde las 11am hasta las 17pm</small>
+        </div>
+        <div class="col-sm-5">
+            <label for="">Número de personas</label>
+            <select formControlName="np_id" class="form-select">
+                <option value="" disabled selected>Seleccionar número</option>
+                <option *ngFor="let numpersonas of numpersonas">{{numpersonas.np_id}}</option>
+            </select>
+            <small class="text-danger">En el caso de ser más, explicar en descripción</small>
+        </div>
+    </div>
+    <div class="row input-group">
+        <div class="col-sm-8">
+            <label for="">Descripción</label>
+            <textarea name="" id="" cols="5" rows="1" formControlName="rc_descripcion" class="form-control"></textarea>
+            
+        </div>
+        <div class="col-sm-4">
+            <label for="">Seleccione el estado</label>
+            <select class="form-select form-select-sm" formControlName="rc_estado"
+                aria-label=".form-select-sm example">
+                <option value="" disabled selected> Seleccionar </option>
+                <option>Activo</option>
+                <option>Inactivo</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <button mat-button type="submit" (click)="modificarReservaCliente()" class="btn btn-outline-success">
+        <mat-icon>save</mat-icon> Guardar Datos
+    </button>
+</form>

@@ -1,0 +1,12 @@
+.navbar{
+    background-color: rgb(166, 248, 83);
+}
+.nav-link{
+    color: black;
+}
+.navbar-brand{
+    color: black;
+}
+.nav-item{
+    cursor: pointer;
+}

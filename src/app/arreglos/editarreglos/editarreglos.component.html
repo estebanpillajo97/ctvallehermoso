@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-header">
+        Agregar Tipo de Arreglo
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="editarArreglos">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input name="arr_nombre" type="text" class="form-control" id="" formControlName="arr_nombre"
+                    aria-describedby="helpId" placeholder="Ingresar nombre">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="">Descripción</label>
+                <input name="arr_descripcion" type="text" class="form-control" id="" formControlName="arr_descripcion"
+                    placeholder="Ingresar descripción">
+            </div>
+
+            <div class="mb-3">
+                <label for="">Seleccione el estado</label>
+                <select class="form-select form-select-sm" formControlName="arr_estado"
+                    aria-label=".form-select-sm example">
+                    <option value="" disabled selected> Seleccionar </option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+            </div>
+
+            <div>
+                <button mat-button type="submit" (click)="updateArreglos()" class="btn btn-outline-success">
+                    <mat-icon>save</mat-icon> Guardar Datos
+                </button>
+                <button mat-button type="submit" routerLink="/arreglos" class="btn btn-outline-secondary">
+                    <mat-icon>cancel</mat-icon> Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

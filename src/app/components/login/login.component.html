@@ -1,0 +1,40 @@
+<div class="wrapper">
+    <div class="block">
+        <form [formGroup]="formularioLogin">
+            <div class="block1">
+                <h2>LOGIN</h2>
+            </div>
+
+            <div class="mb-3">
+                <input type="text" placeholder="Ingrese el usuario" class="inp" formControlName="usu_usuario">
+                <div class="alert-danger"
+                    *ngIf="getUsu_Usuario('usu_usuario')?.invalid && (getUsu_Usuario('usu_usuario')?.touched || getUsu_Usuario('usu_usuario')?.dirty)">
+                    <div *ngIf="getUsu_Usuario('usu_usuario')?.errors?.required">
+                        El usuario es requerido.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <input type="password" placeholder="Ingrese la contraseña" class="inp" formControlName="usu_password">
+                <div class="alert-danger"
+                    *ngIf="getUsu_Password('usu_password')?.invalid && (getUsu_Password('usu_password')?.touched || getUsu_Password('usu_password')?.dirty)">
+                    <div *ngIf="getUsu_Password('usu_password')?.errors?.required">
+                        La contraseña es requerida.
+                    </div>
+                    <div *ngIf="getUsu_Password('usu_password')?.errors?.minlength">
+                        Mínimo 8 caracteres.
+                    </div>
+                </div>
+            </div>
+
+            <div class="btns">
+                <button mat-button class="btn-outline-primary" (click)="loginSubmit(formularioLogin.value)"
+                    [disabled]="formularioLogin.invalid"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Login</button>
+                <button mat-button class="btn-outline-secondary" routerLink="/crear_usuario"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i> Crear Usuario</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<p></p>

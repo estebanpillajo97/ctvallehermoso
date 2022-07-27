@@ -1,0 +1,106 @@
+<div class="col">
+  <h1>Lista de eventos del cliente</h1>
+  <p></p>
+  <div class="row">
+    <div class="row input-group">
+      <div class="col-sm-3">
+        <label>Comprobar número de cédula nacional</label>
+        <input type="text" value="" class="form-control" name="cedula" [(ngModel)]="cedula"
+          (change)="validadorDeCedula(cedula)" placeholder="1700000001">
+        <span *ngIf="!validador" class="text-danger">Campo vacio o cédula invalida</span>
+        <span *ngIf="validador" class="text-success">Cédula correcta</span>
+      </div>
+      <div class="col-sm-2">
+        <label for="">Fecha desde</label>
+        <input type="date" name="" id="" class="form-control" [(ngModel)]="ec_fechaDesde">
+      </div>
+      <div class="col-sm-2">
+        <label for="">Fecha hasta</label>
+        <input type="date" name="" id="" class="form-control" [(ngModel)]="ec_fechaHasta">
+      </div>
+      <div class="col-sm-1">
+        <label for=""> </label>
+        <button mat-button class="btn btn-outline-primary" (click)="filtrarFechas()"><i class="fa fa-search fa-lg"></i> Filtrar</button>
+      </div>
+      <div class="col-sm-1 pdf">
+        <button mat-button class="btn btn-outline-dark" (click)="convertToPDF()">
+          <i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i> Exportar PDF
+        </button>
+      </div>
+      <div class="col-sm-3 excel">
+        <button mat-button class="btn btn-outline-success" (click)="convertToXLSX()">
+          <i class="fa fa-file-excel-o fa-lg" aria-hidden="true"></i> Exportar XLSX
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2 form-check">
+      <input mdbRadio class="form-check-input" type="radio" name="flexRadioDefault" id="Activos" (click)=eventosActivos()/>
+      <label class="form-check-label" for="Activo"> Eventos Activos </label>
+    </div>
+    <!-- Default checked radio -->
+    <div class="col-sm-2 form-check">
+      <input mdbRadio class="form-check-input" type="radio" name="flexRadioDefault" id="Inactivo"  (click)="eventosInactivos()"/>
+      <label class="form-check-label" for="Inactivo"> Eventos Inactivos </label>
+    </div>
+    <div class="col-sm-2 form-check">
+      <input mdbRadio class="form-check-input" type="radio" name="flexRadioDefault" id="Todos" (click)="eventosTodos()"/>
+      <label class="form-check-label" for="Inactivo"> Todos </label>
+    </div>
+  </div>
+</div>
+<div>
+  <!-- Tabla de eventocliente -->
+  <table class="table" id="contentToConvert">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Id</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Cédula</th>
+        <th scope="col">Tipo Cédula</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Evento</th>
+        <th scope="col">Arreglo</th>
+        <th scope="col">Fecha / Hora</th>
+        <th scope="col">Adultos</th>
+        <th scope="col">Niños</th>
+        <th scope="col">Submenu</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let eventoCliente of eventoCliente | paginate: { itemsPerPage: 10, currentPage: p }">
+
+        <th>{{eventoCliente.ec_id}}</th>
+        <td>{{eventoCliente.ec_nombreCliente}}</td>
+        <td>{{eventoCliente.ec_cedula}}</td>
+        <td>{{eventoCliente.tc_tipoCedula}}</td>
+        <td>{{eventoCliente.ec_celular}}</td>
+        <td>{{eventoCliente.eve_nombre}}</td>
+        <td>{{eventoCliente.arr_id}}</td>
+        <td>{{eventoCliente.ec_fecha}} {{eventoCliente.ec_hora}}</td>
+        <td>{{eventoCliente.na_numeroAdultos}}</td>
+        <td>{{eventoCliente.nn_numeroNinios}}</td>
+        <td>{{eventoCliente.sm_nombre}}</td>
+        <td>{{eventoCliente.ec_descripcion}}</td>
+        <td>
+          <button mat-button class="btn btn-outline-warning" routerLink="/activar_eventos/{{eventoCliente.ec_id}}">
+            <i class="fa fa-pencil-square-o fa-lg"></i>
+          </button>
+          <button mat-button class="btn btn-outline-success" *ngIf="eventoCliente.ec_estado=='Activo'"
+            (click)="inactivarEventoCliente(eventoCliente.ec_id)">
+            <i class="fa fa-toggle-on fa-lg"></i> Activo
+          </button>
+          <button mat-button class="btn btn-outline-danger" *ngIf="eventoCliente.ec_estado=='Inactivo'"
+            (click)="activarEventoCliente(eventoCliente.ec_id)">
+            <i class="fa fa-toggle-off fa-lg"></i> Inactivo
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--Paginación-->
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

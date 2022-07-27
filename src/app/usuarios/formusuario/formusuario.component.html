@@ -1,0 +1,151 @@
+<div class="card">
+    <div class="card-header">
+        <h1>Crear usuario</h1>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="formularioUsuarios" (ngSubmit)="enviarDatosU()">
+            <div class="row input-group">
+                <div class="col-sm-6">
+                    <label for="" class="form-label">Nombres y Apellidos</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="usu_nombres"
+                        aria-describedby="helpId" placeholder="Ingresar nombres y apellidos">
+                    <div class="alert-danger"
+                        *ngIf="getUsu_Nombre('usu_nombres')?.invalid && (getUsu_Nombre('usu_nombres')?.touched || getUsu_Nombre('usu_nombres')?.dirty)">
+                        <div *ngIf="getUsu_Nombre('usu_nombres')?.errors?.required">
+                            El nombre es requerido.
+                        </div>
+                        <div *ngIf="getUsu_Nombre('usu_nombres')?.errors?.minlength">
+                            Mínimo 10 caracteres
+                        </div>
+                        <div *ngIf="getUsu_Nombre('usu_nombres')?.errors?.maxlength">
+                            Máximo 60 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="" class="form-label">Cédula</label>
+                    <input name="usu_cedula" type="text" class="form-control" id="usu_cedula"
+                        formControlName="usu_cedula" placeholder="Ingresar cédula">
+                    <div class="alert-danger"
+                        *ngIf="getUsu_Cedula('usu_cedula')?.invalid && (getUsu_Cedula('usu_cedula')?.touched || getUsu_Cedula('usu_cedula')?.dirty)">
+                        <div *ngIf="getUsu_Cedula('usu_cedula')?.errors?.required">
+                            La cédula es requerida
+                        </div>
+                        <div *ngIf="getUsu_Cedula('usu_cedula')?.errors?.minlength">
+                            Mínimo 10 caracteres
+                        </div>
+                        <div *ngIf="getUsu_Cedula('usu_cedula')?.errors?.maxlength">
+                            Máximo 13 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row input-group">
+                <div class="col-sm-6">
+                    <label for="" class="form-label">Dirección</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="usu_direccion"
+                        placeholder="Ingresar dirección domicilio">
+                    <div class="alert-danger"
+                        *ngIf="getUsu_Direccion('usu_direccion')?.invalid && (getUsu_Direccion('usu_direccion')?.touched || getUsu_Direccion('usu_direccion')?.dirty)">
+                        <div *ngIf="getUsu_Direccion('usu_direccion')?.errors?.required">
+                            La dirección es requerida
+                        </div>
+                        <div *ngIf="getUsu_Direccion('usu_direccion')?.errors?.minlength">
+                            Mínimo 10 caracteres
+                        </div>
+                        <div *ngIf="getUsu_Direccion('usu_direccion')?.errors?.maxlength">
+                            Máximo 50 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="" class="form-label">Teléfono</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="usu_telefono"
+                        placeholder="Ingresar teléfono">
+                    <div class="alert-danger"
+                        *ngIf="getUsu_Telefono('usu_telefono')?.invalid && (getUsu_Telefono('usu_telefono')?.touched || getUsu_Telefono('usu_telefono')?.dirty)">
+                        <div *ngIf="getUsu_Telefono('usu_telefono')?.errors?.required">
+                            El teléfono es requerido.
+                        </div>
+                        <div *ngIf="getUsu_Telefono('usu_telefono')?.errors?.minlength">
+                            Mínimo 10 caracteres
+                        </div>
+                        <div *ngIf="getUsu_Telefono('usu_telefono')?.errors?.maxlength">
+                            Máximo 15 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row input-group">
+                <div class="col-sm-6">
+                    <label for="" class="form-label">Usuario</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="usu_usuario"
+                        placeholder="Ingresar usuario">
+                    <div class="alert-danger"
+                        *ngIf="getUsu_Usuario('usu_usuario')?.invalid && (getUsu_Usuario('usu_usuario')?.touched || getUsu_Usuario('usu_usuario')?.dirty)">
+                        <div *ngIf="getUsu_Usuario('usu_usuario')?.errors?.required">
+                            El usuario es requerido.
+                        </div>
+                        <div *ngIf="getUsu_Usuario('usu_usuario')?.errors?.minlength">
+                            Mínimo 5 caracteres
+                        </div>
+                        <div *ngIf="getUsu_Usuario('usu_usuario')?.errors?.maxlength">
+                            Máximo 12 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="" class="form-label">Contraseña</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="usu_password"
+                        placeholder="Ingresar contraseña">
+                    <div class="alert-danger"
+                        *ngIf="getUsu_Password('usu_password')?.invalid && (getUsu_Password('usu_password')?.touched || getUsu_Password('usu_password')?.dirty)">
+                        <div *ngIf="getUsu_Password('usu_password')?.errors?.required">
+                            La contraseña es requerida
+                        </div>
+                        <div *ngIf="getUsu_Password('usu_password')?.errors?.minlength">
+                            Mínimo 8 caracteres
+                        </div>
+                        <div *ngIf="getUsu_Password('usu_password')?.errors?.maxlength">
+                            Máximo 50 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row input-group">
+                
+                <div class="col-sm-6">
+                    <label for="usu_estado" class="form-label">Seleccione el estado</label>
+                    <select class="form-select form-select-sm" formControlName="usu_estado"
+                        aria-label=".form-select-sm example">
+                        <option value="" disabled selected> Seleccionar Estado </option>
+                        <option>Activo</option>
+                        <option>Inactivo</option>
+                    </select>
+                    <div class="alert-danger"
+                        *ngIf="getUsu_Estado('usu_estado')?.invalid && getUsu_Estado('usu_estado')?.touched">
+                        <div *ngIf="getUsu_Estado('usu_estado')?.errors?.required">
+                            Por favor escoga un estado
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div>
+                <button mat-button type="submit" class="btn btn-outline-success">
+                    <mat-icon>save</mat-icon> Guardar Datos
+                </button>
+                <button mat-button type="button" class="btn btn-outline-secondary">
+                    <mat-icon>cancel</mat-icon> Cancelar
+                </button>
+
+            </div>
+        </form>
+    </div>
+
+</div>

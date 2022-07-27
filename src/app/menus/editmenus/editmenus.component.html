@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-header">
+        Agregar Menú
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="editarMenus">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input name="men_nombre" type="text" class="form-control" id="" formControlName="men_nombre"
+                    aria-describedby="helpId" placeholder="Ingresar nombre">
+            </div>
+
+            <div class="mb-3">
+                <label for="">Descripción</label>
+                <input name="men_descripcion" type="text" class="form-control" id="" formControlName="men_descripcion"
+                    placeholder="Ingresar dirección de domicilio">
+            </div>
+
+            <div class="mb-3">
+                <label for="men_foto">Fotografía</label>
+                <input type="file" formControlName="men_foto" name="men_foto" id="men_foto" class="form-control"
+                    (change)="uploadImage($event)">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="">Seleccione el estado</label>
+                <select class="form-select form-select-sm" formControlName="men_estado"
+                    aria-label=".form-select-sm example">
+                    <option value="" disabled selected> Seleccionar </option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+            </div>
+
+            <div>
+
+                <button mat-button type="submit" (click)="updateMenu()" class="btn btn-outline-success">
+                    <mat-icon>save</mat-icon> Guardar Datos
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header">
+        Agregar Menú
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="editarReservaciones">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombre</label>
+                <input name="res_nombre" type="text" class="form-control" id="" formControlName="res_nombre"
+                    aria-describedby="helpId" placeholder="Ingresar nombre">
+            </div>
+
+            <div class="mb-3">
+                <label for="">Descripción</label>
+                <input name="res_descripcion" type="text" class="form-control" id="" formControlName="res_descripcion"
+                    placeholder="Ingresar descripción">
+            </div>
+
+            <div class="mb-3">
+                <label for="">Seleccione el estado</label>
+                <select class="form-select form-select-sm" formControlName="res_estado"
+                    aria-label=".form-select-sm example">
+                    <option value="" disabled selected> Seleccionar </option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+            </div>
+
+            <div>
+
+                <button mat-button type="submit" (click)="updateReservaciones()" class="btn btn-outline-success">
+                    <mat-icon>save</mat-icon> Guardar Datos
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>

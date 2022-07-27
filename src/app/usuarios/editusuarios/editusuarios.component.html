@@ -1,0 +1,72 @@
+<div class="card">
+    <div class="card-header">
+        Agregar usuario
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="editarUsuariosForm">
+            <div class="mb-3">
+                <label for="" class="form-label">Nombres y Apellidos</label>
+                <input name="" type="text" 
+                class="form-control" id="" formControlName="usu_nombres"
+                 aria-describedby="helpId" placeholder="Ingresar nombres y apellidos">
+            </div>
+
+            <div class="mb-3">
+                <label for="usu_cedula">Cédula</label>
+                <input name="" type="text" class="form-control" id=""
+                formControlName="usu_cedula" placeholder="Ingresar cédula">
+            </div>
+
+            <div class="mb-3">
+                <label for="usu_direccion">Dirección</label>
+                <input name="" type="text" class="form-control" id=""
+                formControlName="usu_direccion" placeholder="Ingresar dirección de domicilio">
+            </div>
+
+            <div class="mb-3">
+                <label for="usu_telefono">Teléfono</label>
+                <input name="" type="text" class="form-control" id=""
+                formControlName="usu_telefono" placeholder="Ingresar teléfono">
+            </div>
+
+            <div class="mb-3">
+                <label for="usu_usuario">Usuario</label>
+                <input name="" type="text" class="form-control" id=""
+                formControlName="usu_usuario" placeholder="Ingresar usuario">
+            </div>
+
+            <div class="mb-3">
+                <label for="usu_password">Contraseña</label>
+                <input name="" type="text" class="form-control" id=""
+                formControlName="usu_password"  placeholder="Ingresar contraseña">
+            </div>
+
+            <div class="mb-3">
+                <label for="rol_id">Seleccione el rol</label>
+                <select class="form-select form-select-sm" formControlName="rol_id"
+                aria-label=".form-select-sm example">
+                    <option value="" disabled selected> Seleccionar Rol </option>
+                    <option *ngFor="let rol of rol" value="{{rol.rol_id}}">{{rol.rol_nombre}}</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="usu_estado">Seleccione el estado</label>
+                <select class="form-select form-select-sm" formControlName="usu_estado"
+                 aria-label=".form-select-sm example">
+                    <option value="" disabled selected> Seleccionar </option>
+                    <option>Activo</option>
+                    <option>Inactivo</option>
+                </select>
+            </div>
+            <div>
+
+                <button mat-button type="submit" (click)="updateUsuarios()" class="btn btn-outline-success">
+                    <mat-icon>save</mat-icon> Guardar Datos
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
