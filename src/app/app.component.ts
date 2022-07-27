@@ -34,13 +34,13 @@ export class AppComponent {
     }else{
       this.isLogged=true;
       console.log(this.usuarioService.getCurrentUser());
-      if(this.usuarioService.getRol()=='1'){
+      if(this.usuarioService.getRol()=='4'){
         console.log("esAdmin");
         this.isAdmin=true;
         console.log(this.isAdmin);
         this.isJefe=false;
       }
-      if(this.usuarioService.getRol()=='2'){
+      if(this.usuarioService.getRol()=='14'){
         this.isJefe=true;
         this.isAdmin=false;
       }
