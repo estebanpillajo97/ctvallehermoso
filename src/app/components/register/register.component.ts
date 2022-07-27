@@ -28,11 +28,11 @@ export class RegisterComponent implements OnInit {
       this.isLogged=false;
     }else{
       this.isLogged==true;
-      if(this.usuarioService.getRol()=='1'){
+      if(this.usuarioService.getRol()=='4'){
         this.isAdmin==true;
         this.isJefe==false;
       }
-      if(this.usuarioService.getRol()=='2'){
+      if(this.usuarioService.getRol()=='14'){
         this.isJefe==true;
         this.isAdmin==false;
       }
