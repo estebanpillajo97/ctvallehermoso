@@ -17,6 +17,6 @@ h1{
     border-radius: 15px;
     border-color: rgb(36, 13, 238);
 }
-.table{
-    font-size: 22px;
+.table.text-center{
+    font-size: 16px;
 }
