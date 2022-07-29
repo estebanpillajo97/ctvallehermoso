@@ -206,7 +206,7 @@
             <br>
                 <form [formGroup]="formularioEvento" action="" *ngIf="evento==true" (ngSubmit)="AgregarEventoCliente()">
                     <div class="row input-group">
-                        <div class="col-sm-5">
+                        <div class="col-sm-4">
                             <label for="">Nombre y apellidos</label>
                             <input type="text" class="form-control" formControlName="ec_nombreCliente"
                                 placeholder="Ingrese su nombre">
@@ -240,7 +240,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <label for="">Tipo Cédula</label>
                             <select name="" id="" class="form-select" formControlName="tc_id">
                                 <option value="" disabled selected>Seleccionar</option>
@@ -279,7 +279,7 @@
                         <div class="col-sm-4">
                             <label for="">Tipo de arreglo</label>
                             <select name="" id="" class="form-select" formControlName="arr_id">
-                                <option value="" disabled selected>Seleccionar arreglo</option>
+                                <option value="" disabled selected>Seleccionar</option>
                                 <option *ngFor="let arreglos of arreglos" value="{{arreglos.arr_id}}">
                                     {{arreglos.arr_nombre}}</option>
                             </select>
@@ -293,7 +293,7 @@
                         <div class="col-sm-4">
                             <label for="">Tipo de evento</label>
                             <select name="" id="" class="form-select" formControlName="eve_id">
-                                <option value="" disabled selected>Seleccionar evento</option>
+                                <option value="" disabled selected>Seleccionar</option>
                                 <option *ngFor="let eventos of eventos" value="{{eventos.eve_id}}">
                                     {{eventos.eve_nombre}}</option>
                             </select>

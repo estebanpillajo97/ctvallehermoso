@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ReservacionesService } from 'src/app/services/reservaciones.service';
 import { ReservaClienteService } from 'src/app/services/reserva-cliente.service';
 import { ToastrService } from 'ngx-toastr';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-reservacliente-activar',
   templateUrl: './reservacliente-activar.component.html',
@@ -49,7 +49,7 @@ export class ReservaclienteActivarComponent implements OnInit {
       np_id: [''],
       tc_id: [''],
       rc_descripcion: [''],
-      rc_estado: ['']
+      rc_estado: ['',Validators.required]
     });
   }
 
@@ -94,5 +94,7 @@ export class ReservaclienteActivarComponent implements OnInit {
       this.router.navigateByUrl('reservas_cliente')
     });
   }
-  
+  getRC_Estado(rc_estado: string) {
+    return this.formularioReserva.get(rc_estado);
+  }
 }

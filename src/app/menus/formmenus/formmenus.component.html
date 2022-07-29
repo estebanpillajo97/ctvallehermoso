@@ -1,74 +1,76 @@
 <div class="card">
     <div class="card-header">
-        Agregar Menú
+        <h1>Agregar Menú</h1>Agregar Menú
     </div>
 
     <div class="card-body">
         <form [formGroup]="formularioMenus" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-                <label for="" class="form-label">Nombre</label>
-                <input name="" type="text" class="form-control" id="" formControlName="men_nombre"
-                    aria-describedby="helpId" placeholder="Ingresar nombre">
-                <div class="alert-danger"
-                    *ngIf="getMen_Nombre('men_nombre')?.invalid && (getMen_Nombre('men_nombre')?.touched || getMen_Nombre('men_nombre')?.dirty)">
-                    <div *ngIf="getMen_Nombre('men_nombre')?.errors?.required">
-                        Nombre es requerido.
+            <div class="row input-group">
+                <div class="col-sm-5">
+                    <label for="" class="form-label">Nombre</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="men_nombre"
+                        aria-describedby="helpId" placeholder="Ingresar nombre">
+                    <div class="alert-danger"
+                        *ngIf="getMen_Nombre('men_nombre')?.invalid && (getMen_Nombre('men_nombre')?.touched || getMen_Nombre('men_nombre')?.dirty)">
+                        <div *ngIf="getMen_Nombre('men_nombre')?.errors?.required">
+                            Nombre es requerido.
+                        </div>
+                        <div *ngIf="getMen_Nombre('men_nombre')?.errors?.minlength">
+                            Mínimo 5 caracteres.
+                        </div>
                     </div>
-                    <div *ngIf="getMen_Nombre('men_nombre')?.errors?.minlength">
-                        Mínimo 5 caracteres.
+                </div>
+    
+                <div class="col-sm-5">
+                    <label for="">Descripción</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="men_descripcion"
+                        placeholder="Ingresar descripción">
+                    <div class="alert-danger"
+                        *ngIf="getMen_Descripcion('men_descripcion')?.invalid && (getMen_Descripcion('men_descripcion')?.touched || getMen_Descripcion('men_descripcion')?.dirty)">
+                        <div *ngIf="getMen_Descripcion('men_descripcion')?.errors?.required">
+                            Descripcion es requerida.
+                        </div>
+                        <div *ngIf="getMen_Descripcion('men_descripcion')?.errors?.minlength">
+                            Mínimo 10 caracteres.
+                        </div>
+                        <div *ngIf="getMen_Descripcion('men_descripcion')?.errors?.maxlength">
+                            Máximo 200 caracteres.
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="mb-3">
-                <label for="">Descripción</label>
-                <input name="" type="text" class="form-control" id="" formControlName="men_descripcion"
-                    placeholder="Ingresar descripción">
-                <div class="alert-danger"
-                    *ngIf="getMen_Descripcion('men_descripcion')?.invalid && (getMen_Descripcion('men_descripcion')?.touched || getMen_Descripcion('men_descripcion')?.dirty)">
-                    <div *ngIf="getMen_Descripcion('men_descripcion')?.errors?.required">
-                        Descripcion es requerida.
+            <div class="row input-group">
+                <div class="col-sm-6">
+                    <label for="men_foto">Fotografía</label>
+                    <input type="file" formControlName="men_foto" name="men_foto" id="men_foto" class="form-control"
+                        (change)="uploadImage($event)">
+                    <div class="alert-danger"
+                        *ngIf="(getMen_Foto('men_foto')?.invalid && (getMen_Foto('men_foto')?.touched || getMen_Foto('men_foto')?.dirty))">
+                        <div *ngIf="getMen_Foto('men_foto')?.errors?.required">
+                            Foto es requerida.
+                        </div>
+                        <div *ngIf="getMen_Foto('men_foto')?.errors?.pattern">
+                            Los formatos permitidos son (jpg, png y jpeg)
+                        </div>
                     </div>
-                    <div *ngIf="getMen_Descripcion('men_descripcion')?.errors?.minlength">
-                        Mínimo 10 caracteres.
-                    </div>
-                    <div *ngIf="getMen_Descripcion('men_descripcion')?.errors?.maxlength">
-                        Máximo 200 caracteres.
+                </div>
+    
+                <div class="col-sm-4">
+                    <label for="men_estado">Seleccione el estado</label>
+                    <select class="form-select form-select-sm" formControlName="men_estado"
+                        aria-label=".form-select-sm example">
+                        <option value="" disabled selected> Seleccionar Estado </option>
+                        <option>Activo</option>
+                        <option>Inactivo</option>
+                    </select>
+                    <div class="alert-danger"
+                        *ngIf="getMen_Estado('men_estado')?.invalid && getMen_Estado('men_estado')?.touched">
+                        <div *ngIf="getMen_Estado('men_estado')?.errors?.required">
+                            Por favor escoga un estado
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="mb-3">
-                <label for="men_foto">Fotografía</label>
-                <input type="file" formControlName="men_foto" name="men_foto" id="men_foto" class="form-control"
-                    (change)="uploadImage($event)">
-                <div class="alert-danger"
-                    *ngIf="(getMen_Foto('men_foto')?.invalid && (getMen_Foto('men_foto')?.touched || getMen_Foto('men_foto')?.dirty))">
-                    <div *ngIf="getMen_Foto('men_foto')?.errors?.required">
-                        Foto es requerida.
-                    </div>
-                    <div *ngIf="getMen_Foto('men_foto')?.errors?.pattern">
-                        Los formatos permitidos son (jpg, png y jpeg)
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <label for="men_estado">Seleccione el estado</label>
-                <select class="form-select form-select-sm" formControlName="men_estado"
-                    aria-label=".form-select-sm example">
-                    <option value="" disabled selected> Seleccionar Estado </option>
-                    <option>Activo</option>
-                    <option>Inactivo</option>
-                </select>
-                <div class="alert-danger"
-                    *ngIf="getMen_Estado('men_estado')?.invalid && getMen_Estado('men_estado')?.touched">
-                    <div *ngIf="getMen_Estado('men_estado')?.errors?.required">
-                        Por favor escoga un estado
-                    </div>
-                </div>
-            </div>
-
             <div>
                 <button mat-button type="submit" class="btn btn-outline-success">
                     <mat-icon>save</mat-icon> Guardar Datos

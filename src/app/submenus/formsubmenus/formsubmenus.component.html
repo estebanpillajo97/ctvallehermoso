@@ -1,89 +1,88 @@
 <div class="card">
     <div class="card-header">
-        <h2>Agregar submenú</h2>
+        <h1>Agregar submenú</h1>
     </div>
     <div class="card-body">
         <form [formGroup]="formularioSubmenu" (ngSubmit)="AgregarSubmenu()">
-            <div class="mb-3">
-                <label for="" class="form-label">Seleccione el Menú</label>
-                <select class="form-select form-select-sm" formControlName="men_id"
-                    aria-label=".form-select-sm example">
-                    <option value="" disabled selected> Seleccionar </option>
-                    <option *ngFor="let menu of menu" value="{{menu.men_id}}">{{menu.men_nombre}}</option>
-                </select>
-                <div class="alert-danger" *ngIf="getMen_Nombre('men_id')?.invalid && getMen_Nombre('men_id')?.touched">
-                    <div *ngIf="getMen_Nombre('men_id')?.errors?.required">
-                        Por favor escoga el tipo de menú
+            <div class="row input-group">
+                <div class="col-sm-3">
+                    <label for="" class="form-label">Seleccione el Menú</label>
+                    <select class="form-select form-select-sm" formControlName="men_id"
+                        aria-label=".form-select-sm example">
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option *ngFor="let menu of menu" value="{{menu.men_id}}">{{menu.men_nombre}}</option>
+                    </select>
+                    <div class="alert-danger"
+                        *ngIf="getMen_Nombre('men_id')?.invalid && getMen_Nombre('men_id')?.touched">
+                        <div *ngIf="getMen_Nombre('men_id')?.errors?.required">
+                            Por favor escoga el tipo de menú
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label for="" class="form-label">Nombre</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="sm_nombre"
+                        aria-describedby="helpId" placeholder="Ingresar nombre">
+                    <div class="alert-danger"
+                        *ngIf="getSM_Nombre('sm_nombre')?.invalid && (getSM_Nombre('sm_nombre')?.touched || getSM_Nombre('sm_nombre')?.dirty)">
+                        <div *ngIf="getSM_Nombre('sm_nombre')?.errors?.required">
+                            Nombre es requerido.
+                        </div>
+                        <div *ngIf="getSM_Nombre('sm_nombre')?.errors?.minlength">
+                            Mínimo 10 caracteres.
+                        </div>
+                        <div *ngIf="getSM_Nombre('sm_nombre')?.errors?.maxlength">
+                            Mínimo 50 caracteres.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <label for="">Descripción</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="sm_descripcion"
+                        placeholder="Ingresar descripcion">
+                    <div class="alert-danger"
+                        *ngIf="getSM_Descripcion('sm_descripcion')?.invalid && (getSM_Descripcion('sm_descripcion')?.touched || getSM_Descripcion('sm_descripcion')?.dirty)">
+                        <div *ngIf="getSM_Descripcion('sm_descripcion')?.errors?.required">
+                            Descripcion es requerida.
+                        </div>
+                        <div *ngIf="getSM_Descripcion('sm_descripcion')?.errors?.minlength">
+                            Mínimo 10 caracteres.
+                        </div>
+                        <div *ngIf="getSM_Descripcion('sm_descripcion')?.errors?.maxlength">
+                            Máximo 100 caracteres.
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="mb-3">
-                <label for="" class="form-label">Nombre</label>
-                <input name="" type="text" class="form-control" id="" formControlName="sm_nombre"
-                    aria-describedby="helpId" placeholder="Ingresar nombre">
-                <div class="alert-danger"
-                    *ngIf="getSM_Nombre('sm_nombre')?.invalid && (getSM_Nombre('sm_nombre')?.touched || getSM_Nombre('sm_nombre')?.dirty)">
-                    <div *ngIf="getSM_Nombre('sm_nombre')?.errors?.required">
-                        Nombre es requerido.
+            <div class="row input-group">
+                <div class="col-sm-3">
+                    <label for="" class="form-label">Precio</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="sm_precio"
+                        placeholder="Ingresar precio 0.00">
+                    <div class="alert-danger"
+                        *ngIf="getSM_Precio('sm_precio')?.invalid && (getSM_Precio('sm_precio')?.touched || getSM_Precio('sm_precio')?.dirty)">
+                        <div *ngIf="getSM_Precio('sm_precio')?.errors?.required">
+                            El precio es requerido, escribir como en el ejemplo 0.00
+                        </div>
                     </div>
-                    <div *ngIf="getSM_Nombre('sm_nombre')?.errors?.minlength">
-                        Mínimo 10 caracteres.
-                    </div>
-                    <div *ngIf="getSM_Nombre('sm_nombre')?.errors?.maxlength">
-                        Mínimo 50 caracteres.
+                </div>
+                <div class="col-sm-5">
+                    <label for="">Seleccione el estado</label>
+                    <select class="form-select form-select-sm" formControlName="sm_estado"
+                        aria-label=".form-select-sm example">
+                        <option value="" disabled selected> Seleccionar Estado </option>
+                        <option>Activo</option>
+                        <option>Inactivo</option>
+                    </select>
+                    <div class="alert-danger"
+                        *ngIf="getSM_Estado('sm_estado')?.invalid && getSM_Estado('sm_estado')?.touched">
+                        <div *ngIf="getSM_Estado('sm_estado')?.errors?.required">
+                            Por favor escoga un estado
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="mb-3">
-                <label for="">Descripción</label>
-                <input name="" type="text" class="form-control" id="" formControlName="sm_descripcion"
-                    placeholder="Ingresar descripcion">
-                <div class="alert-danger"
-                    *ngIf="getSM_Descripcion('sm_descripcion')?.invalid && (getSM_Descripcion('sm_descripcion')?.touched || getSM_Descripcion('sm_descripcion')?.dirty)">
-                    <div *ngIf="getSM_Descripcion('sm_descripcion')?.errors?.required">
-                        Descripcion es requerida.
-                    </div>
-                    <div *ngIf="getSM_Descripcion('sm_descripcion')?.errors?.minlength">
-                        Mínimo 10 caracteres.
-                    </div>
-                    <div *ngIf="getSM_Descripcion('sm_descripcion')?.errors?.maxlength">
-                        Máximo 100 caracteres.
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <label for="" class="form-label">Precio</label>
-                <input name="" type="text" class="form-control" id="" formControlName="sm_precio"
-                    placeholder="Ingresar precio 0.00">
-                <div class="alert-danger"
-                    *ngIf="getSM_Precio('sm_precio')?.invalid && (getSM_Precio('sm_precio')?.touched || getSM_Precio('sm_precio')?.dirty)">
-                    <div *ngIf="getSM_Precio('sm_precio')?.errors?.required">
-                        El precio es requerido, escribir como en el ejemplo 0.00
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <label for="">Seleccione el estado</label>
-                <select class="form-select form-select-sm" formControlName="sm_estado"
-                    aria-label=".form-select-sm example">
-                    <option value="" disabled selected> Seleccionar Estado </option>
-                    <option>Activo</option>
-                    <option>Inactivo</option>
-                </select>
-                <div class="alert-danger"
-                    *ngIf="getSM_Estado('sm_estado')?.invalid && getSM_Estado('sm_estado')?.touched">
-                    <div *ngIf="getSM_Estado('sm_estado')?.errors?.required">
-                        Por favor escoga un estado
-                    </div>
-                </div>
-            </div>
-
             <div>
-
                 <button mat-button type="submit" class="btn btn-outline-success">
                     <mat-icon>save</mat-icon> Guardar Datos
                 </button>
@@ -93,5 +92,4 @@
             </div>
         </form>
     </div>
-
 </div>

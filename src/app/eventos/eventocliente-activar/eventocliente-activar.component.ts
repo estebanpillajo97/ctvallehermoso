@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ArreglosService } from 'src/app/services/arreglos.service';
 import { EventosService } from 'src/app/services/eventos.service';
 import { EventoClienteService } from 'src/app/services/evento-cliente.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-eventocliente-activar',
@@ -56,7 +56,7 @@ export class EventoclienteActivarComponent implements OnInit {
       na_id: [''],
       nn_id: [''],
       ec_descripcion: [''],
-      ec_estado: [''],
+      ec_estado: ['',Validators.required],
       tc_id: ['']
     });
   }
@@ -119,5 +119,8 @@ export class EventoclienteActivarComponent implements OnInit {
       this.toastr.success('Edición de información', 'Completa')
       this.router.navigateByUrl('eventos_cliente')
     });
+  }
+  getEC_Estado(ec_estado: string) {
+    return this.formularioEvento.get(ec_estado);
   }
 }

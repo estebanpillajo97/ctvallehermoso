@@ -90,6 +90,9 @@
                 <option>Activo</option>
                 <option>Inactivo</option>
             </select>
+            <div class="alert-danger" *ngIf="(getEC_Estado('ec_estado')?.errors?.required)">
+                Por favor escoja el estado.
+            </div>
         </div>
     </div>
     <br>
