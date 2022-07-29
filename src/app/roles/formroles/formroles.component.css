@@ -2,6 +2,9 @@ h1{
     font-family: 'Times New Roman', Times, serif;
     font-size: 35px;
 }
+.form-label{
+    font-size: 26px;
+}
 .form-control{
     border-radius: 15px;
     border-color: rgb(44,216,44);

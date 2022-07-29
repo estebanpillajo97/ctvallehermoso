@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h1>Agregar Menú</h1>Agregar Menú
+        <h1>Agregar Menú</h1>
     </div>
 
     <div class="card-body">
@@ -22,7 +22,7 @@
                 </div>
     
                 <div class="col-sm-5">
-                    <label for="">Descripción</label>
+                    <label for="" class="form-label">Descripción</label>
                     <input name="" type="text" class="form-control" id="" formControlName="men_descripcion"
                         placeholder="Ingresar descripción">
                     <div class="alert-danger"
@@ -41,7 +41,7 @@
             </div>
             <div class="row input-group">
                 <div class="col-sm-6">
-                    <label for="men_foto">Fotografía</label>
+                    <label for="men_foto" class="form-label">Fotografía</label>
                     <input type="file" formControlName="men_foto" name="men_foto" id="men_foto" class="form-control"
                         (change)="uploadImage($event)">
                     <div class="alert-danger"
@@ -56,7 +56,7 @@
                 </div>
     
                 <div class="col-sm-4">
-                    <label for="men_estado">Seleccione el estado</label>
+                    <label for="men_estado" class="form-label">Seleccione el estado</label>
                     <select class="form-select form-select-sm" formControlName="men_estado"
                         aria-label=".form-select-sm example">
                         <option value="" disabled selected> Seleccionar Estado </option>
