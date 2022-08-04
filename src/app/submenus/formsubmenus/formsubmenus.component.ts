@@ -36,6 +36,8 @@ export class FormsubmenusComponent implements OnInit {
       sm_precio:
         ['', [Validators.required, Validators.pattern(this.precioPattern)]],
 
+      sm_cantidadPromedio:['',Validators.required],
+
       sm_estado:
         ['', [Validators.required]]
     });
@@ -58,7 +60,8 @@ export class FormsubmenusComponent implements OnInit {
     formData.append('men_id', this.formularioSubmenu.value.men_id.toString());
     formData.append('sm_nombre', this.formularioSubmenu.value.sm_nombre.toString());
     formData.append('sm_descripcion', this.formularioSubmenu.value.sm_descripcion.toString());
-    formData.append('sm_precio', this.formularioSubmenu.value.sm_precio.toString())
+    formData.append('sm_precio', this.formularioSubmenu.value.sm_precio.toString());
+    formData.append('sm_cantidadPromedio', this.formularioSubmenu.value.sm_cantidadPromedio.toString());
     formData.append('sm_estado', this.formularioSubmenu.value.sm_estado.toString());
     this.submenusService.agregarSubmenu(formData).subscribe(() => {
       this.toastr.success('Registro de Submenú', 'Completo');
@@ -78,6 +81,9 @@ export class FormsubmenusComponent implements OnInit {
   }
   getSM_Precio(sm_precio:any){
     return this.formularioSubmenu.get(sm_precio);
+  }
+  getSM_CantidadPromedio(sm_cantidadPromedio:any){
+    return this.formularioSubmenu.get(sm_cantidadPromedio);
   }
   getSM_Estado(sm_estado:string){
     return this.formularioSubmenu.get(sm_estado);

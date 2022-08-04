@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h1>Agregar submenú</h1>
+        <h1>Crear submenú</h1>
     </div>
     <div class="card-body">
         <form [formGroup]="formularioSubmenu" (ngSubmit)="AgregarSubmenu()">
@@ -67,6 +67,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-3">
+                    <label for="" class="form-label">Cantidad promedio venta</label>
+                    <input type="text" class="form-control" formControlName="sm_cantidadPromedio"
+                    placeholder="Ingrese la cantidad">
+                </div>
+            </div>
+            <div class="row input-group">
                 <div class="col-sm-5">
                     <label for="" class="form-label">Seleccione el estado</label>
                     <select class="form-select form-select-sm" formControlName="sm_estado"

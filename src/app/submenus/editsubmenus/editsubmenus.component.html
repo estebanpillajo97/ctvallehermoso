@@ -1,49 +1,55 @@
 <div class="card">
     <div class="card-header">
-        Agregar usuario
+        <h1>Editar Submenú</h1>
     </div>
 
     <div class="card-body">
         <form [formGroup]="editarSubmenu" (ngSubmit)="editarSubmenus()">
-            <div class="mb-3">
-                <label for="">Seleccione el Menú</label>
-                <select class="form-select form-select-sm" formControlName="men_id"
-                    aria-label=".form-select-sm example">
-                    <option value="" disabled selected> Seleccionar </option>
-                    <option *ngFor="let menu of menu" value="{{menu.men_id}}">{{menu.men_nombre}}</option>
-                </select>
+            <div class="row input-group">
+                <div class="col-sm-3">
+                    <label for="" class="form-label">Seleccione el Menú</label>
+                    <select class="form-select form-select-sm" formControlName="men_id"
+                        aria-label=".form-select-sm example">
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option *ngFor="let menu of menu" value="{{menu.men_id}}">{{menu.men_nombre}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="" class="form-label">Nombre</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="sm_nombre"
+                        aria-describedby="helpId" placeholder="Ingresar nombre">
+                </div>
+                <div class="col-sm-5">
+                    <label for="" class="form-label">Descripción</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="sm_descripcion"
+                        placeholder="Ingresar descripcion">
+                </div>
             </div>
-
-            <div class="mb-3">
-                <label for="" class="form-label">Nombre</label>
-                <input name="" type="text" class="form-control" id="" formControlName="sm_nombre"
-                    aria-describedby="helpId" placeholder="Ingresar nombre">
+            <br>
+            <div class="row input-group">
+                <div class="col-sm-3">
+                    <label for="" class="form-label">Precio</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="sm_precio"
+                        placeholder="Ingresar precio 0.00">
+                </div>
+                <div class="col-sm-3">
+                    <label for="" class="form-label">Cantidad promedio venta</label>
+                    <input type="text" class="form-control" formControlName="sm_cantidadPromedio"
+                        placeholder="Ingrese la cantidad">
+                </div>
             </div>
-
-            <div class="mb-3">
-                <label for="">Descripción</label>
-                <input name="" type="text" class="form-control" id="" formControlName="sm_descripcion"
-                    placeholder="Ingresar descripcion">
+            <div class="row input-group">
+                <div class="col-sm-5">
+                    <label for="" class="form-label">Seleccione el estado</label>
+                    <select class="form-select form-select-sm" formControlName="sm_estado"
+                        aria-label=".form-select-sm example">
+                        <option value="" disabled selected> Seleccionar Estado </option>
+                        <option>Activo</option>
+                        <option>Inactivo</option>
+                    </select>
+                </div>
             </div>
-
-            <div class="mb-3">
-                <label for="">Precio</label>
-                <input name="" type="text" class="form-control" id="" formControlName="sm_precio"
-                    placeholder="Ingresar precio 0.00">
-            </div>
-
-            <div class="mb-3">
-                <label for="">Seleccione el estado</label>
-                <select class="form-select form-select-sm" formControlName="sm_estado"
-                    aria-label=".form-select-sm example">
-                    <option value="" disabled selected> Seleccionar </option>
-                    <option>Activo</option>
-                    <option>Inactivo</option>
-                </select>
-            </div>
-
             <div>
-
                 <button mat-button type="submit" class="btn btn-outline-success">
                     <mat-icon>save</mat-icon> Guardar Datos
                 </button>
