@@ -24,7 +24,6 @@ h1{
     align-items: center;
     margin-top: 20px;
 }
-img{
-    justify-content: center;
-    align-items: center;
+table{
+    background-image: "../../assets/img/Logo_ValleHermoso.png";
 }

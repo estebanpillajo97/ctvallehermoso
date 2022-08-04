@@ -52,9 +52,8 @@
 </div>
 <div>
   <!-- Tabla de eventocliente -->
-  <table class="table" id="contentToConvert">
+  <table class="table" id="contentToConvert" >
     <thead>
-      <img src="../../assets/img/Logo_ValleHermoso.png" height="150px" width="150px">
       <tr class="text-center">
         <th scope="col">Id</th>
         <th scope="col">Nombres</th>
@@ -72,7 +71,7 @@
         <th scope="col">Opciones</th>
       </tr>
     </thead>
-    <tbody class="text-center">
+    <tbody class="text-center" background>
       <tr *ngFor="let eventoCliente of eventoCliente | paginate: { itemsPerPage: 10, currentPage: p }">
 
         <th>{{eventoCliente.ec_id}}</th>
