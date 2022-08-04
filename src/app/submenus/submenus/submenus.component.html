@@ -18,8 +18,9 @@
         <th scope="col">Id</th>
         <th scope="col">Tipo de Menú</th>
         <th scope="col">Submenú</th>
-        <th scope="col">Descripción</th>
+        <th scope="col">Cantidad Promedio Venta</th>
         <th scope="col">Precio</th>
+        <th scope="col">Descripción</th>
         <th scope="col">Opciones</th>
       </tr>
     </thead>
@@ -29,9 +30,9 @@
         <th>{{submenu.sm_id}}</th>
         <td>{{submenu.men_nombre}}</td>
         <td>{{submenu.sm_nombre}}</td>
-        <td>{{submenu.sm_descripcion}}</td>
         <td>{{submenu.sm_precio}}</td>
-
+        <td>{{submenu.sm_cantidadPromedio}}</td>
+        <td>{{submenu.sm_descripcion}}</td>
         <td>
           <button mat-button class="btn btn-outline-warning" routerLink="/editar_submenus/{{submenu.sm_id}}">
             <i class="fa fa-pencil-square-o fa-lg"></i>

@@ -329,7 +329,6 @@
                             </div>
                             <small class="text-secondary">Desde las 11am hasta las 20pm</small>
                         </div>
-                        
                     </div>
                     <div class="row input-group">
                         <div class="col-sm-4">
@@ -402,7 +401,6 @@
                             </div>
                         </div>
                     </div>
-    
                     <br>
                     <button mat-button type="submit" class="btn btn-outline-success mx-auto d-block">
                         <mat-icon>save</mat-icon> Reservar Evento
@@ -419,9 +417,9 @@
 <!--Muestra los menús que ofrece-->
 <h1 class="text-center te_ofrecemos">TE OFRECEMOS</h1>
 <div class="row">
-    <div class="col-md-3 col-sm-3" *ngFor="let menus of menus">
+    <div class="col-md-3 col-sm-3" *ngFor="let submenus of submenus">
         <div class="card mb-4 box-shadow bg-gradiente text-white">
-            <img src="https://apirestvh.herokuapp.com/uploads/{{menus.men_foto}}" alt="" class="car-img-top">
+            <img src="https://apirestvh.herokuapp.com/uploads/{{submenus.men_foto}}" alt="" class="car-img-top">
             <div class="card-body row justify-content-center align-items-center">
                 <h1>{{menus.men_nombre}}</h1>
             </div>
