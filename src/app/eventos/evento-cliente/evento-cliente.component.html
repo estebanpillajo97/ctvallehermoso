@@ -66,6 +66,7 @@
         <th scope="col">Adultos</th>
         <th scope="col">Niños</th>
         <th scope="col">Submenu</th>
+        <th scope="col">Cantidad</th>
         <th scope="col">Descripción</th>
         <th scope="col">Opciones</th>
       </tr>
@@ -84,6 +85,7 @@
         <td>{{eventoCliente.na_numeroAdultos}}</td>
         <td>{{eventoCliente.nn_numeroNinios}}</td>
         <td>{{eventoCliente.sm_nombre}}</td>
+        <td>{{eventoCliente.sm_cantidadPromedio}}</td>
         <td>{{eventoCliente.ec_descripcion}}</td>
         <td>
           <button mat-button class="btn btn-outline-warning" routerLink="/activar_eventos/{{eventoCliente.ec_id}}">
