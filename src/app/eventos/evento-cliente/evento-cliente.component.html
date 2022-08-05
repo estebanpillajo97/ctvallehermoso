@@ -54,63 +54,61 @@
     </div>
   </div>
 </div>
-<div>
+<br>
+<div id="contentToConvert">
   <!-- Tabla de eventocliente -->
-  <div id="contentToConvert">
-    <table class="table">
-      <h3>Complejo Turístico Valle Hermoso</h3>
-      <thead>
-        <tr class="text-center">
-          <th scope="col">Id</th>
-          <th scope="col">Nombres</th>
-          <th scope="col">Cédula</th>
-          <th scope="col">Tipo Cédula</th>
-          <th scope="col">Teléfono</th>
-          <th scope="col">Evento</th>
-          <th scope="col">Arreglo</th>
-          <th scope="col">Fecha / Hora</th>
-          <th scope="col">Adultos</th>
-          <th scope="col">Niños</th>
-          <th scope="col">Submenu</th>
-          <th scope="col">Cantidad</th>
-          <th scope="col">Descripción</th>
-          <th scope="col">Opciones</th>
-        </tr>
-      </thead>
-      <tbody class="text-center" background>
-        <tr *ngFor="let eventoCliente of eventoCliente | paginate: { itemsPerPage: 10, currentPage: p }">
+  <img src="../../assets/img/Logo_ValleHermoso.png" width="100px" height="100px"><h3>COMPLEJO TURÍSTICO VALLE HERMOSO</h3>
+  <table class="table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Id</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Cédula</th>
+        <th scope="col">Tipo Cédula</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Evento</th>
+        <th scope="col">Arreglo</th>
+        <th scope="col">Fecha / Hora</th>
+        <th scope="col">Adultos</th>
+        <th scope="col">Niños</th>
+        <th scope="col">Submenu</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody class="text-center" background>
+      <tr *ngFor="let eventoCliente of eventoCliente | paginate: { itemsPerPage: 10, currentPage: p }">
 
-          <th>{{eventoCliente.ec_id}}</th>
-          <td>{{eventoCliente.ec_nombreCliente}}</td>
-          <td>{{eventoCliente.ec_cedula}}</td>
-          <td>{{eventoCliente.tc_tipoCedula}}</td>
-          <td>{{eventoCliente.ec_celular}}</td>
-          <td>{{eventoCliente.eve_nombre}}</td>
-          <td>{{eventoCliente.arr_id}}</td>
-          <td>{{eventoCliente.ec_fecha}} {{eventoCliente.ec_hora}}</td>
-          <td>{{eventoCliente.na_numeroAdultos}}</td>
-          <td>{{eventoCliente.nn_numeroNinios}}</td>
-          <td>{{eventoCliente.sm_nombre}}</td>
-          <td>{{eventoCliente.sm_cantidadPromedio}}</td>
-          <td>{{eventoCliente.ec_descripcion}}</td>
-          <td>
-            <button mat-button class="btn btn-outline-warning" routerLink="/activar_eventos/{{eventoCliente.ec_id}}">
-              <i class="fa fa-pencil-square-o fa-lg"></i>
-            </button>
-            <button mat-button class="btn btn-outline-success" *ngIf="eventoCliente.ec_estado=='Activo'"
-              (click)="inactivarEventoCliente(eventoCliente.ec_id)">
-              <i class="fa fa-toggle-on fa-lg"></i> Activo
-            </button>
-            <button mat-button class="btn btn-outline-danger" *ngIf="eventoCliente.ec_estado=='Inactivo'"
-              (click)="activarEventoCliente(eventoCliente.ec_id)">
-              <i class="fa fa-toggle-off fa-lg"></i> Inactivo
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
+        <th>{{eventoCliente.ec_id}}</th>
+        <td>{{eventoCliente.ec_nombreCliente}}</td>
+        <td>{{eventoCliente.ec_cedula}}</td>
+        <td>{{eventoCliente.tc_tipoCedula}}</td>
+        <td>{{eventoCliente.ec_celular}}</td>
+        <td>{{eventoCliente.eve_nombre}}</td>
+        <td>{{eventoCliente.arr_id}}</td>
+        <td>{{eventoCliente.ec_fecha}} {{eventoCliente.ec_hora}}</td>
+        <td>{{eventoCliente.na_numeroAdultos}}</td>
+        <td>{{eventoCliente.nn_numeroNinios}}</td>
+        <td>{{eventoCliente.sm_nombre}}</td>
+        <td>{{eventoCliente.sm_cantidadPromedio}}</td>
+        <td>{{eventoCliente.ec_descripcion}}</td>
+        <td>
+          <button mat-button class="btn btn-outline-warning" routerLink="/activar_eventos/{{eventoCliente.ec_id}}">
+            <i class="fa fa-pencil-square-o fa-lg"></i>
+          </button>
+          <button mat-button class="btn btn-outline-success" *ngIf="eventoCliente.ec_estado=='Activo'"
+            (click)="inactivarEventoCliente(eventoCliente.ec_id)">
+            <i class="fa fa-toggle-on fa-lg"></i> Activo
+          </button>
+          <button mat-button class="btn btn-outline-danger" *ngIf="eventoCliente.ec_estado=='Inactivo'"
+            (click)="activarEventoCliente(eventoCliente.ec_id)">
+            <i class="fa fa-toggle-off fa-lg"></i> Inactivo
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <!--Paginación-->
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
