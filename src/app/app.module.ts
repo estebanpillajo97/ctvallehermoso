@@ -67,7 +67,8 @@ import { EventoclienteActivarComponent } from './eventos/eventocliente-activar/e
 import { AforoComponent } from './aforo/aforo/aforo.component';
 
 const routes: Routes = [
-
+  //Aforo
+  { path: 'aforo', component: AforoComponent ,canActivate: [AuthAdminGuard]},
   //Usuarios
   { path: 'usuarios', component: UsuarioComponent, canActivate: [AuthAdminGuard] },
   { path: 'crear_usuario', component: FormusuarioComponent },

@@ -1,1 +1,29 @@
-<p>aforo works!</p>
+<div class="col">
+    <h1>Número de aforo</h1>
+</div>
+  
+  <div>
+    <!-- Tabla de Aforo -->
+    <table class="table">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">Id</th>
+          <th scope="col">Número de aforo</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let aforo of aforo">
+          <th>{{aforo.af_id}}</th>
+          <td>{{aforo.af_numeroAforo}}</td>
+
+          <td>
+            <button mat-button class="btn btn-outline-warning">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
