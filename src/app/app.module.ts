@@ -65,10 +65,12 @@ import { ReservaclienteActivarComponent } from './reservaciones/reservacliente-a
 import { EventoClienteComponent } from './eventos/evento-cliente/evento-cliente.component';
 import { EventoclienteActivarComponent } from './eventos/eventocliente-activar/eventocliente-activar.component';
 import { AforoComponent } from './aforo/aforo/aforo.component';
+import { EditaforoComponent } from './aforo/editaforo/editaforo.component';
 
 const routes: Routes = [
   //Aforo
   { path: 'aforo', component: AforoComponent ,canActivate: [AuthAdminGuard]},
+  { path: 'editar_aforo/:af_id', component: EditaforoComponent, canActivate: [AuthAdminGuard] },
   //Usuarios
   { path: 'usuarios', component: UsuarioComponent, canActivate: [AuthAdminGuard] },
   { path: 'crear_usuario', component: FormusuarioComponent },
@@ -148,7 +150,8 @@ const routes: Routes = [
     ReservaclienteActivarComponent,
     EventoClienteComponent,
     EventoclienteActivarComponent,
-    AforoComponent
+    AforoComponent,
+    EditaforoComponent
   ],
   imports: [
     BrowserModule,
