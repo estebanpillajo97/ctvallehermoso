@@ -64,6 +64,7 @@ import { ReservaClienteComponent } from './reservaciones/reserva-cliente/reserva
 import { ReservaclienteActivarComponent } from './reservaciones/reservacliente-activar/reservacliente-activar.component';
 import { EventoClienteComponent } from './eventos/evento-cliente/evento-cliente.component';
 import { EventoclienteActivarComponent } from './eventos/eventocliente-activar/eventocliente-activar.component';
+import { AforoComponent } from './aforo/aforo/aforo.component';
 
 const routes: Routes = [
 
@@ -145,7 +146,8 @@ const routes: Routes = [
     ReservaClienteComponent,
     ReservaclienteActivarComponent,
     EventoClienteComponent,
-    EventoclienteActivarComponent
+    EventoclienteActivarComponent,
+    AforoComponent
   ],
   imports: [
     BrowserModule,

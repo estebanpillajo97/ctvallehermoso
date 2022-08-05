@@ -7,6 +7,7 @@ import { SubmenusService } from '../services/submenus.service';
 import { ReservaClienteService } from '../services/reserva-cliente.service';
 import { EventoClienteService } from '../services/evento-cliente.service';
 import { TipoCedulaService } from '../services/tipo-cedula.service';
+import { AforoService } from '../services/aforo.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
@@ -29,6 +30,7 @@ export class InicioComponent implements OnInit {
   arreglos: any;
   eventos: any;
   tipo_cedula:any;
+  aforo:any;
   numPersonasRes:any;
   numAdultos:any;
   numNinios:any;
@@ -48,6 +50,7 @@ export class InicioComponent implements OnInit {
     public submenusService: SubmenusService,
     private ReservaClienteService: ReservaClienteService,
     private TipoCedulaService:TipoCedulaService,
+    private aforoService:AforoService,
     private formularioRes: FormBuilder,
     private formularioEve: FormBuilder,
     private toastr: ToastrService
@@ -90,6 +93,7 @@ export class InicioComponent implements OnInit {
     this.getNumPersonasRes();
     this.getNumAdultos();
     this.getNumNinios();
+    this.getAforo();
     this.menusService.get().subscribe((res: any) => {
       this.menus = res;
     });
@@ -160,6 +164,14 @@ export class InicioComponent implements OnInit {
     this.TipoCedulaService.get().subscribe((data: any)=>{
       this.tipo_cedula = data;
     }, error =>{
+      console.log(error);
+      alert('Ocurrió un error');
+    });
+  }
+  getAforo(){
+    this.aforoService.get().subscribe((data:any)=>{
+      this.aforo = data;
+    }, error => {
       console.log(error);
       alert('Ocurrió un error');
     });
