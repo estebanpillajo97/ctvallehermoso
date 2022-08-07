@@ -16,6 +16,7 @@
                 <th scope="col">Precio</th>
                 <th scope="col">Cantidad Promedio Venta</th>
                 <th scope="col">Descripción</th>
+                <th scope="col">Opciones</th>
             </tr>
         </thead>
         <tbody class="text-center">
@@ -26,6 +27,16 @@
                 <td>{{submenu.sm_precio}}</td>
                 <td>{{submenu.sm_cantidadPromedio}}</td>
                 <td>{{submenu.sm_descripcion}}</td>
+                <td>
+                    <button mat-button class="btn btn-outline-success" *ngIf="submenu.sm_estado=='Activo'"
+                      (click)="inactivarSubmenus(submenu.sm_id)">
+                      <i class="fa fa-toggle-on fa-lg"></i> Activo
+                    </button>
+                    <button mat-button class="btn btn-outline-danger" *ngIf="submenu.sm_estado=='Inactivo'"
+                      (click)="activarSubmenus(submenu.sm_id)">
+                      <i class="fa fa-toggle-off fa-lg"></i> Inactivo
+                    </button>
+                  </td>
             </tr>
         </tbody>
     </table>
