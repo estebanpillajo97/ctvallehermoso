@@ -23,4 +23,19 @@ export class ListadoSubmenusComponent implements OnInit {
       alert('Ocurrió un error');
     });
   }
+  inactivarSubmenus(id:any){
+    this.submenusService.inactivarSubmenus(id).subscribe((data)=>{
+      this.getSubmenu();
+    },error=>{
+      console.log(error);
+    });
+  }
+
+  activarSubmenus(id:any){
+    this.submenusService.activarSubmenus(id).subscribe((data)=>{
+      this.getSubmenu();
+    },error=>{
+      console.log(error);
+    });
+  }
 }

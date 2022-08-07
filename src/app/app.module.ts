@@ -73,6 +73,8 @@ const routes: Routes = [
   //Aforo
   { path: 'aforo', component: AforoComponent ,canActivate: [AuthAdminGuard]},
   { path: 'editar_aforo/:af_id', component: EditaforoComponent, canActivate: [AuthAdminGuard] },
+  //Inventario
+  { path: 'inventario_submenus', component:InventarioComponent, canActivate: [AuthAdminGuard]},
   //Usuarios
   { path: 'usuarios', component: UsuarioComponent, canActivate: [AuthAdminGuard] },
   { path: 'crear_usuario', component: FormusuarioComponent },
@@ -114,6 +116,7 @@ const routes: Routes = [
   { path: 'crear_submenus', component: FormsubmenusComponent, canActivate: [AuthAdminGuard] },
   { path: 'editar_submenus/:sm_id', component: EditsubmenusComponent, canActivate: [AuthAdminGuard] },
   { path: 'listado_submenus', component: ListadoSubmenusComponent, canActivate: [AuthAdminGuard] },
+  
   { path: 'login', component: LoginComponent },
   { path: '', component: InicioComponent, pathMatch: 'full' },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
