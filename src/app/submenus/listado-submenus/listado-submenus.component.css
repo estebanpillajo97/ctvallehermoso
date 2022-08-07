@@ -2,9 +2,16 @@ h1{
     font-family: 'Times New Roman', Times, serif;
     font-size: 35px;
 }
-.form-control{
-    border-radius: 15px;
-    border-color: rgb(36, 13, 238);
+.btn svg{
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.btn span{
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
 }
 h3{
     justify-content: center;
@@ -14,12 +21,6 @@ h3{
     font-family: 'Times New Roman', Times, serif;
     margin-bottom: 10px;
     margin-top: -55px;
-}
-h4{
-    text-align: justify;
-    font-size: 26px;
-    font-family: 'Times New Roman', Times, serif;
-    margin-top: 10px;
 }
 img{
     width: 130px;

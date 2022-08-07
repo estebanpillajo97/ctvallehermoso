@@ -13,6 +13,9 @@ export class SubmenusService {
   get() {
     return this.httpClient.get(this.API_ENDPOINT + '/submenus');
   }
+  getListadoCompleto(){
+    return this.httpClient.get(this.API_ENDPOINT + '/submenus/listado');
+  }
   getSelectSubmenu(men_id:any) {
     return this.httpClient.get(this.API_ENDPOINT + '/submenus_select/'+men_id);
   }

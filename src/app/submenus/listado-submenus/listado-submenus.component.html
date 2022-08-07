@@ -1,0 +1,33 @@
+<div class="col">
+    <h1>Lista de Submenús</h1>
+</div>
+
+<div>
+    <img src="../../assets/img/Logo_ValleHermoso.png">
+    <h3>COMPLEJO TURÍSTICO VALLE HERMOSO</h3>
+    <br>
+    <!-- Tabla de Submenus -->
+    <table class="table">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">Id</th>
+                <th scope="col">Tipo de Menú</th>
+                <th scope="col">Submenú</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad Promedio Venta</th>
+                <th scope="col">Descripción</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr *ngFor="let submenu of submenus | paginate: { itemsPerPage: 15, currentPage: p }">
+                <th>{{submenu.sm_id}}</th>
+                <td>{{submenu.men_nombre}}</td>
+                <td>{{submenu.sm_nombre}}</td>
+                <td>{{submenu.sm_precio}}</td>
+                <td>{{submenu.sm_cantidadPromedio}}</td>
+                <td>{{submenu.sm_descripcion}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

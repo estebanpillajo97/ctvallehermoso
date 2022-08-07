@@ -66,6 +66,7 @@ import { EventoClienteComponent } from './eventos/evento-cliente/evento-cliente.
 import { EventoclienteActivarComponent } from './eventos/eventocliente-activar/eventocliente-activar.component';
 import { AforoComponent } from './aforo/aforo/aforo.component';
 import { EditaforoComponent } from './aforo/editaforo/editaforo.component';
+import { ListadoSubmenusComponent } from './submenus/listado-submenus/listado-submenus.component';
 
 const routes: Routes = [
   //Aforo
@@ -111,7 +112,7 @@ const routes: Routes = [
   { path: 'submenus', component: SubmenusComponent, canActivate: [AuthAdminGuard] },
   { path: 'crear_submenus', component: FormsubmenusComponent, canActivate: [AuthAdminGuard] },
   { path: 'editar_submenus/:sm_id', component: EditsubmenusComponent, canActivate: [AuthAdminGuard] },
-
+  { path: 'listado_submenus', component: ListadoSubmenusComponent, canActivate: [AuthAdminGuard] },
   { path: 'login', component: LoginComponent },
   { path: '', component: InicioComponent, pathMatch: 'full' },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
@@ -151,7 +152,8 @@ const routes: Routes = [
     EventoClienteComponent,
     EventoclienteActivarComponent,
     AforoComponent,
-    EditaforoComponent
+    EditaforoComponent,
+    ListadoSubmenusComponent
   ],
   imports: [
     BrowserModule,
