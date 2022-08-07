@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventoClienteService } from 'src/app/services/evento-cliente.service';
+import { SubmenusService } from 'src/app/services/submenus.service';
 @Component({
   selector: 'app-inventario',
   templateUrl: './inventario.component.html',
@@ -7,7 +8,8 @@ import { EventoClienteService } from 'src/app/services/evento-cliente.service';
 })
 export class InventarioComponent implements OnInit {
   submenus:any;
-  constructor(private eventoClienteService:EventoClienteService) { 
+  constructor(private eventoClienteService:EventoClienteService,
+    private submenusService:SubmenusService) { 
 
   }
 
@@ -16,7 +18,7 @@ export class InventarioComponent implements OnInit {
   }
 
   getEventoCliente(){
-    this.eventoClienteService.get().subscribe(data =>{
+    this.submenusService.getListadoCompleto().subscribe(data =>{
       this.submenus = data;
     }, error=> {
       console.log(error);
