@@ -74,7 +74,7 @@ const routes: Routes = [
   { path: 'aforo', component: AforoComponent ,canActivate: [AuthAdminGuard]},
   { path: 'editar_aforo/:af_id', component: EditaforoComponent, canActivate: [AuthAdminGuard] },
   //Inventario
-  { path: 'inventario_submenus', component:InventarioComponent, canActivate: [AuthAdminGuard]},
+  { path: 'inventario', component:InventarioComponent, canActivate: [AuthAdminGuard]},
   //Usuarios
   { path: 'usuarios', component: UsuarioComponent, canActivate: [AuthAdminGuard] },
   { path: 'crear_usuario', component: FormusuarioComponent },
