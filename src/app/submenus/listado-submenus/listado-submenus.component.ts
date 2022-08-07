@@ -10,7 +10,7 @@ export class ListadoSubmenusComponent implements OnInit {
   submenus:any;
   p: any = 1;
   constructor(private submenusService: SubmenusService) { 
-
+    this.getSubmenu();
   }
 
   ngOnInit(): void {
