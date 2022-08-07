@@ -2,16 +2,13 @@ h1{
     font-family: 'Times New Roman', Times, serif;
     font-size: 35px;
 }
-
 .bg-gradiente{
     background: linear-gradient(-50deg,rgb(157, 236, 247),white);
 }
-
 .card{
     border-radius: 7px;
     border: rgb(255, 255, 255) 3px solid;
 }
-
 .img{
     width: 100%;
     height: 250px;

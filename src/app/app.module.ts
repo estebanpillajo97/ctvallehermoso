@@ -67,6 +67,7 @@ import { EventoclienteActivarComponent } from './eventos/eventocliente-activar/e
 import { AforoComponent } from './aforo/aforo/aforo.component';
 import { EditaforoComponent } from './aforo/editaforo/editaforo.component';
 import { ListadoSubmenusComponent } from './submenus/listado-submenus/listado-submenus.component';
+import { InventarioComponent } from './inventario/inventario/inventario.component';
 
 const routes: Routes = [
   //Aforo
@@ -153,7 +154,8 @@ const routes: Routes = [
     EventoclienteActivarComponent,
     AforoComponent,
     EditaforoComponent,
-    ListadoSubmenusComponent
+    ListadoSubmenusComponent,
+    InventarioComponent
   ],
   imports: [
     BrowserModule,

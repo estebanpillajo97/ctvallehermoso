@@ -21,16 +21,13 @@ export class EventoClienteService {
   obtenerEventoCliente(ec_id: any) {
     return this.httpClient.get(this.API_ENDPOINT + '/eventos_cliente/' + ec_id);
   }
-
   editarEventoCliente(ec_id: any, data: any) {
     return this.httpClient.post(this.API_ENDPOINT + '/eventos_cliente/' + ec_id, data);
   }
-  
   activarEventoCliente(ec_id:EventoClientes){
     const headers = new HttpHeaders();
     return this.httpClient.post(this.API_ENDPOINT + '/eventos_cliente/' + ec_id + '/enable', { headers });
   }
-
   inactivarEventoCliente(ec_id:EventoClientes){
     const headers = new HttpHeaders();
     return this.httpClient.post(this.API_ENDPOINT + '/eventos_cliente/' + ec_id + '/disable', { headers });
