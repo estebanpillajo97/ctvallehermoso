@@ -12,7 +12,8 @@ export class InventarioComponent implements OnInit {
   ec_fechaDesde:any;
   ec_fechaHasta:any;
   Inventario:Boolean=false;
-  inventarioSubmenu:any;
+  inventarioSubmenuAdulto:any;
+  inventarioSubmenuNinio:any;
   constructor(private eventoClienteService:EventoClienteService,
     private submenusService:SubmenusService) { 
 
@@ -27,9 +28,16 @@ export class InventarioComponent implements OnInit {
       this.Inventario=false;
     }else{
       this.Inventario=true;
-      this.eventoClienteService.inventarioSubmenu(this.sm_id,this.ec_fechaDesde,this.ec_fechaHasta).subscribe((data)=>{
-        this.inventarioSubmenu = data;
-        console.log(this.inventarioSubmenu);
+      this.eventoClienteService.inventarioSubmenuAdulto(this.sm_id,this.ec_fechaDesde,this.ec_fechaHasta).subscribe((data)=>{
+        this.inventarioSubmenuAdulto = data;
+        console.log(this.inventarioSubmenuAdulto);
+      }, error =>{
+        console.log(error);
+        alert('Ocurrió un error');
+      });
+      this.eventoClienteService.inventarioSubmenuNinio(this.sm_id,this.ec_fechaDesde,this.ec_fechaHasta).subscribe((data)=>{
+        this.inventarioSubmenuNinio = data;
+        console.log(this.inventarioSubmenuNinio);
       }, error =>{
         console.log(error);
         alert('Ocurrió un error');

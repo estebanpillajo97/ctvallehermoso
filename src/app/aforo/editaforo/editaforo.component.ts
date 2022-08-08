@@ -41,7 +41,7 @@ export class EditaforoComponent implements OnInit {
     formData.append('af_numeroAforo', this.editarAforo.value.af_numeroAforo.toString());
     this.aforoService.editarAforo(this.af_id, formData).subscribe(() => {
       this.toastr.success('Edición de aforo', 'Completa');
-      this.router.navigateByUrl('arreglos')
+      this.router.navigateByUrl('aforo')
     });
   }
 }
