@@ -5,7 +5,7 @@
         <div class="row input-group">
             <div class="col-sm-3">
                 <label>Tipo de submenús</label>
-                <select class="form-select" formControlName="sm_id">
+                <select class="form-select" [(ngModel)]="sm_id">
                     <option value="" disabled selected>Seleccionar</option>
                     <option *ngFor="let submenus of submenus" value="{{submenus.sm_id}}">
                         {{submenus.sm_nombre}}</option>
@@ -13,11 +13,11 @@
             </div>
             <div class="col-sm-2">
                 <label for="">Fecha desde</label>
-                <input type="date" name="" id="" class="form-control">
+                <input type="date" name="" id="" class="form-control" [(ngModel)]="ec_fechaDesde">
             </div>
             <div class="col-sm-2">
                 <label for="">Fecha hasta</label>
-                <input type="date" name="" id="" class="form-control">
+                <input type="date" name="" id="" class="form-control" [(ngModel)]="ec_fechaHasta">
             </div>
             <div class="col-sm-1">
                 <label for=""> </label>
@@ -27,4 +27,24 @@
             </div>
         </div>
     </div>
+</div>
+
+<div *ngIf="Inventario==true">
+    <table class="table">
+        <thead>
+            <tr class="text-center">
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <label for="">El numero de platos es: <strong>5</strong></label>
+</div>
+
+<div>
+    
 </div>
