@@ -22,7 +22,7 @@ export class InventarioComponent implements OnInit {
     this.getEventoCliente();
   }
 
-  mostrarTablaSubmenu(){
+  public mostrarTablaSubmenu(){
     if(this.sm_id=="" && this.ec_fechaDesde=="" && this.ec_fechaHasta==""){
       this.Inventario=false;
     }else{
