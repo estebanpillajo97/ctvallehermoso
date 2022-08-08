@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArreglosService } from 'src/app/services/arreglos.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-editarreglos',

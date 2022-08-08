@@ -1,1 +1,18 @@
-<p>editaforo works!</p>
+<div class="col">
+    <h1>Editar el aforo</h1>
+</div>
+<div>
+    <form [formGroup]="editarAforo">
+        <div class="row input-group">
+            <div class="col-sm-4">
+                <label for="" class="form-label">Ingrese el aforo</label>
+                <input type="text" class="form-control" formControlName="af_numeroAforo" placeholder="500">
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-outline-success" (click)="updateAforo()">
+                    <mat-icon>save</mat-icon> Guardar Datos
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
