@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AnyTxtRecord } from 'dns';
 import { EventoClienteService } from 'src/app/services/evento-cliente.service';
 import { SubmenusService } from 'src/app/services/submenus.service';
 @Component({
