@@ -90,7 +90,7 @@
                         </div>
                         <div class="col-sm-3">
                             <label for="">Tipo Cédula</label>
-                            <select name="" id="" class="form-select" formControlName="tc_id">
+                            <select class="form-select" formControlName="tc_id">
                                 <option value="" disabled selected>Seleccionar</option>
                                 <option *ngFor="let tipo_cedula of tipo_cedula" value="{{tipo_cedula.tc_id}}">
                                     {{tipo_cedula.tc_tipoCedula}}</option>
@@ -124,8 +124,8 @@
                         </div>
                         <div class="col-sm-6">
                             <label for="">Tipo de reserva</label>
-                            <select name="" id="" formControlName="res_id" class="form-select">
-                                <option value="" disabled selected>Seleccionar reserva</option>
+                            <select formControlName="res_id" class="form-select">
+                                <option value="" disabled selected>Seleccionar</option>
                                 <option *ngFor="let reserva of reserva" value="{{reserva.res_id}}">
                                     {{reserva.res_nombre}}</option>
                             </select>
@@ -243,7 +243,7 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="">Tipo Cédula</label>
-                            <select name="" id="" class="form-select" formControlName="tc_id">
+                            <select class="form-select" formControlName="tc_id">
                                 <option value="" disabled selected>Seleccionar</option>
                                 <option *ngFor="let tipo_cedula of tipo_cedula" value="{{tipo_cedula.tc_id}}">
                                     {{tipo_cedula.tc_tipoCedula}}
@@ -279,7 +279,7 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="">Tipo de arreglo</label>
-                            <select name="" id="" class="form-select" formControlName="arr_id">
+                            <select class="form-select" formControlName="arr_id">
                                 <option value="" disabled selected>Seleccionar</option>
                                 <option *ngFor="let arreglos of arreglos" value="{{arreglos.arr_id}}">
                                     {{arreglos.arr_nombre}}</option>
@@ -293,7 +293,7 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="">Tipo de evento</label>
-                            <select name="" id="" class="form-select" formControlName="eve_id">
+                            <select class="form-select" formControlName="eve_id">
                                 <option value="" disabled selected>Seleccionar</option>
                                 <option *ngFor="let eventos of eventos" value="{{eventos.eve_id}}">
                                     {{eventos.eve_nombre}}</option>
@@ -334,7 +334,7 @@
                     <div class="row input-group">
                         <div class="col-sm-4">
                             <label for="">Número de adultos</label>
-                            <select name="" id="" formControlName="na_id" class="form-select">
+                            <select formControlName="na_id" class="form-select">
                                 <option value="" disabled selected>Seleccionar</option>
                                 <option *ngFor="let numAdultos of numAdultos" value="{{numAdultos.na_id}}">{{numAdultos.na_numeroAdultos}}</option>
                             </select>
@@ -348,7 +348,7 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="">Número de niñ@s</label>
-                            <select name="" id="" formControlName="nn_id" class="form-select">
+                            <select formControlName="nn_id" class="form-select">
                                 <option value="" disabled selected>Seleccionar</option>
                                 <option *ngFor="let numNinios of numNinios" value="{{numNinios.nn_id}}">{{numNinios.nn_numeroNinios}}</option>
                             </select>

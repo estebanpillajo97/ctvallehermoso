@@ -5,7 +5,7 @@
         <div class="row input-group">
             <div class="col-sm-3">
                 <label>Tipo de submenús</label>
-                <select name="" id="" class="form-select" formControlName="sm_id">
+                <select class="form-select" formControlName="sm_id">
                     <option value="" disabled selected>Seleccionar</option>
                     <option *ngFor="let submenus of submenus" value="{{submenus.sm_id}}">
                         {{submenus.sm_nombre}}</option>
