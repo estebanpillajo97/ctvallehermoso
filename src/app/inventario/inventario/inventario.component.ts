@@ -12,8 +12,8 @@ export class InventarioComponent implements OnInit {
   ec_fechaDesde:any;
   ec_fechaHasta:any;
   Inventario:Boolean=false;
-  inventarioSubmenuAdulto:any;
-  inventarioSubmenuNinio:any;
+  public inventarioSubmenuAdulto:any;
+  public inventarioSubmenuNinio:any;
   constructor(private eventoClienteService:EventoClienteService,
     private submenusService:SubmenusService) { 
 
@@ -23,7 +23,7 @@ export class InventarioComponent implements OnInit {
     this.getEventoCliente();
   }
 
-  public mostrarTablaSubmenu(){
+  mostrarTablaSubmenu(){
     if(this.sm_id=="" && this.ec_fechaDesde=="" && this.ec_fechaHasta==""){
       this.Inventario=false;
     }else{
