@@ -27,6 +27,8 @@ export class FormmenusComponent implements OnInit {
         [null, [Validators.required, Validators.pattern(this.fotoPattern)]],
       men_nombre:
         [null, [Validators.required, Validators.minLength(5)]],
+        men_cantidadPromedio:
+        [null, [Validators.required, Validators.minLength(3)]],
       men_descripcion:
         [null, [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],
       men_estado:
@@ -50,6 +52,7 @@ export class FormmenusComponent implements OnInit {
     let formData = new FormData();
     formData.append('men_foto', this.files);
     formData.append('men_nombre', this.formularioMenus.value.men_nombre.toString());
+    formData.append('men_cantidadPromedio', this.formularioMenus.value.men_cantidadPromedio.toString());
     formData.append('men_descripcion', this.formularioMenus.value.men_descripcion.toString());
     formData.append('men_estado', this.formularioMenus.value.men_estado.toString());
     this.menusService.uploadData(formData).subscribe(res => {
@@ -62,6 +65,9 @@ export class FormmenusComponent implements OnInit {
 
   getMen_Nombre(men_nombre: string) {
     return this.formularioMenus.get(men_nombre);
+  }
+  getMen_CantidadPromedio(men_cantidadPromedio: string){
+    return this.formularioMenus.get(men_cantidadPromedio);
   }
   getMen_Descripcion(men_descripcion: string) {
     return this.formularioMenus.get(men_descripcion);

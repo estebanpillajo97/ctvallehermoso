@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Aforo } from '../interfaces/aforo';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,5 +18,8 @@ export class AforoService {
   }
   editarAforo(af_id: any, data: any) {
     return this.httpClient.post(this.API_ENDPOINT + '/aforo/' + af_id, data);
+  }
+  getSalones(){
+    return this.httpClient.get(this.API_ENDPOINT + '/salones');
   }
 }

@@ -27,6 +27,7 @@ export class EditmenusComponent implements OnInit {
       this.editarMenus.setValue({
         men_nombre: result[0]['men_nombre'],
         men_foto: [''],
+        men_cantidadPromedio: result[0]['men_cantidadPromedio'],
         men_descripcion: result[0]['men_descripcion'],
         men_estado: result[0]['men_estado']
       });
@@ -34,6 +35,7 @@ export class EditmenusComponent implements OnInit {
     this.editarMenus = this.formulario.group({
       men_nombre: [''],
       men_foto: [''],
+      men_cantidadPromedio: [''],
       men_descripcion: [''],
       men_estado: ['']
     });
@@ -61,6 +63,7 @@ export class EditmenusComponent implements OnInit {
     let formData = new FormData();
     formData.append('men_foto', this.files);
     formData.append('men_nombre', this.editarMenus.value.men_nombre.toString());
+    formData.append('men_cantidadPromedio', this.editarMenus.value.men_cantidadPromedio.toString());
     formData.append('men_descripcion', this.editarMenus.value.men_descripcion.toString());
     formData.append('men_estado', this.editarMenus.value.men_estado.toString());
     this.menusService.editarMenus(this.men_id, formData).subscribe(() => {

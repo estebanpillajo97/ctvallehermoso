@@ -10,7 +10,7 @@
                     <label for="" class="form-label">Nombre</label>
                     <input name="" type="text" class="form-control" id="" formControlName="men_nombre"
                         aria-describedby="helpId" placeholder="Ingresar nombre">
-                    <div class="alert-danger"
+                    <div class="text-danger"
                         *ngIf="getMen_Nombre('men_nombre')?.invalid && (getMen_Nombre('men_nombre')?.touched || getMen_Nombre('men_nombre')?.dirty)">
                         <div *ngIf="getMen_Nombre('men_nombre')?.errors?.required">
                             Nombre es requerido.
@@ -24,7 +24,7 @@
                     <label for="" class="form-label">Descripción</label>
                     <input name="" type="text" class="form-control" id="" formControlName="men_descripcion"
                         placeholder="Ingresar descripción">
-                    <div class="alert-danger"
+                    <div class="text-danger"
                         *ngIf="getMen_Descripcion('men_descripcion')?.invalid && (getMen_Descripcion('men_descripcion')?.touched || getMen_Descripcion('men_descripcion')?.dirty)">
                         <div *ngIf="getMen_Descripcion('men_descripcion')?.errors?.required">
                             Descripcion es requerida.
@@ -44,7 +44,7 @@
                     <label for="men_foto" class="form-label">Fotografía</label>
                     <input type="file" formControlName="men_foto" name="men_foto" id="men_foto" class="form-control"
                         (change)="uploadImage($event)">
-                    <div class="alert-danger"
+                    <div class="text-danger"
                         *ngIf="(getMen_Foto('men_foto')?.invalid && (getMen_Foto('men_foto')?.touched || getMen_Foto('men_foto')?.dirty))">
                         <div *ngIf="getMen_Foto('men_foto')?.errors?.required">
                             Foto es requerida.
@@ -54,6 +54,22 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-3">
+                    <label for="" class="form-label">Cantidad promedio venta</label>
+                    <input type="text" class="form-control" formControlName="men_cantidadPromedio"
+                    placeholder="Ingrese la cantidad">
+                    <div class="text-danger"
+                        *ngIf="getMen_CantidadPromedio('men_cantidadPromedio')?.invalid && (getMen_CantidadPromedio('men_cantidadPromedio')?.touched || getMen_CantidadPromedio('men_cantidadPromedio')?.dirty)">
+                        <div *ngIf="getMen_CantidadPromedio('men_cantidadPromedio')?.errors?.required">
+                            Descripcion es requerida.
+                        </div>
+                        <div *ngIf="getMen_CantidadPromedio('men_cantidadPromedio')?.errors?.minlength">
+                            Mínimo 3 caracteres.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row input-group">
                 <div class="col-sm-4">
                     <label for="men_estado" class="form-label">Seleccione el estado</label>
                     <select class="form-select form-select-sm" formControlName="men_estado"
@@ -62,7 +78,7 @@
                         <option>Activo</option>
                         <option>Inactivo</option>
                     </select>
-                    <div class="alert-danger"
+                    <div class="text-danger"
                         *ngIf="getMen_Estado('men_estado')?.invalid && getMen_Estado('men_estado')?.touched">
                         <div *ngIf="getMen_Estado('men_estado')?.errors?.required">
                             Por favor escoga un estado
