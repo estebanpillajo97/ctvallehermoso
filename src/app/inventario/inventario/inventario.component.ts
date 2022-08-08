@@ -29,6 +29,7 @@ export class InventarioComponent implements OnInit {
       this.Inventario=true;
       this.eventoClienteService.inventarioSubmenu(this.sm_id,this.ec_fechaDesde,this.ec_fechaHasta).subscribe((data)=>{
         this.inventarioSubmenu = data;
+        console.log(this.inventarioSubmenu);
       }, error =>{
         console.log(error);
         alert('Ocurrió un error');
