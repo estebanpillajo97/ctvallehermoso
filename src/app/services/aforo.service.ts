@@ -21,6 +21,13 @@ export class AforoService {
     const headers = new HttpHeaders();
     return this.httpClient.post(this.API_ENDPOINT + '/salones/' + sa_id + '/enable', { headers });
   }
+  obtenerSalones(sa_id: any) {
+    const headers = new HttpHeaders();
+    return this.httpClient.get(this.API_ENDPOINT + '/salones/' + sa_id, { headers: headers });
+  }
+  editarSalones(sa_id: any, data: any) {
+    return this.httpClient.post(this.API_ENDPOINT + '/salones/' + sa_id, data);
+  }
   aforoTotal(){
     return this.httpClient.get(this.API_ENDPOINT + '/aforo');
   }

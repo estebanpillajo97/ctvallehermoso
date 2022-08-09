@@ -11,8 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditaforoComponent implements OnInit {
 
-  //editarAforo: FormGroup;
-  af_id: any;
+  editarAforo: FormGroup;
+  sa_id: any;
 
   constructor(
     private formulario: FormBuilder,
@@ -21,27 +21,27 @@ export class EditaforoComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router
   ) {
-    /*this.af_id = this.ActivatedRoute.snapshot.paramMap.get('af_id');
-    this.aforoService.obtenerAforo(this.af_id).subscribe((result: any) => {
+    this.sa_id = this.ActivatedRoute.snapshot.paramMap.get('sa_id');
+    this.aforoService.obtenerSalones(this.sa_id).subscribe((result: any) => {
       console.log(result);
       this.editarAforo.setValue({
-        af_numeroAforo: result[0]['af_numeroAforo']
+        sa_nombre: result[0]['sa_nombre']
       });
     });
     this.editarAforo = this.formulario.group({
       af_numeroAforo: ['']
-    });*/
+    });
    }
 
   ngOnInit(): void {
   }
 
-  /*updateAforo() {
+  updateAforo() {
     let formData = new FormData();
-    formData.append('af_numeroAforo', this.editarAforo.value.af_numeroAforo.toString());
-    this.aforoService.editarAforo(this.af_id, formData).subscribe(() => {
+    formData.append('sa_nombre', this.editarAforo.value.sa_nombre.toString());
+    this.aforoService.editarSalones(this.sa_id, formData).subscribe(() => {
       this.toastr.success('Edición de aforo', 'Completa');
-      this.router.navigateByUrl('aforo')
+      this.router.navigateByUrl('aforo');
     });
-  }*/
+  }
 }
