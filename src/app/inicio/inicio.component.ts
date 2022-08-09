@@ -93,7 +93,6 @@ export class InicioComponent implements OnInit {
     this.getNumPersonasRes();
     this.getNumAdultos();
     this.getNumNinios();
-    this.getAforo();
     this.menusService.get().subscribe((res: any) => {
       this.menus = res;
     });
@@ -164,14 +163,6 @@ export class InicioComponent implements OnInit {
     this.TipoCedulaService.get().subscribe((data: any)=>{
       this.tipo_cedula = data;
     }, error =>{
-      console.log(error);
-      alert('Ocurrió un error');
-    });
-  }
-  getAforo(){
-    this.aforoService.get().subscribe((data:any)=>{
-      this.aforo = data;
-    }, error => {
       console.log(error);
       alert('Ocurrió un error');
     });
