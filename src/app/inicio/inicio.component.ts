@@ -38,7 +38,7 @@ export class InicioComponent implements OnInit {
   menuses: any;
   submenuses: any;
   public selectedMenusValue: any = {
-    men_id: 0, men_nombre: '', men_foto: '', men_descripcion: '', men_estado: ''
+    men_id: 0, men_nombre: '', men_foto: '',men_cantidadPromedio:'', men_descripcion: '', men_estado: ''
   };
   el_ID: any;
   constructor(
@@ -93,6 +93,7 @@ export class InicioComponent implements OnInit {
     this.getNumPersonasRes();
     this.getNumAdultos();
     this.getNumNinios();
+    this.aforoTotal();
     this.menusService.get().subscribe((res: any) => {
       this.menus = res;
     });
