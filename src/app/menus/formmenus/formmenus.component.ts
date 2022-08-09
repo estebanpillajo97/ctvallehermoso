@@ -27,7 +27,7 @@ export class FormmenusComponent implements OnInit {
         [null, [Validators.required, Validators.pattern(this.fotoPattern)]],
       men_nombre:
         [null, [Validators.required, Validators.minLength(5)]],
-        men_cantidadPromedio:
+      men_cantidadPromedio:
         [null, [Validators.required, Validators.minLength(3)]],
       men_descripcion:
         [null, [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],

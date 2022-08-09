@@ -30,7 +30,6 @@ export class EditsubmenusComponent implements OnInit {
         men_id: result[0]['men_id'],
         sm_descripcion: result[0]['sm_descripcion'],
         sm_precio: result[0]['sm_precio'],
-        sm_cantidadPromedio: result[0]['sm_cantidadPromedio'],
         sm_estado: result[0]['sm_estado']
       });
     });
@@ -39,7 +38,6 @@ export class EditsubmenusComponent implements OnInit {
       men_id: [''],
       sm_descripcion: [''],
       sm_precio: [''],
-      sm_cantidadPromedio: [''],
       sm_estado: ['']
     });
   }
@@ -62,7 +60,6 @@ export class EditsubmenusComponent implements OnInit {
     formData.append('sm_nombre', this.editarSubmenu.value.sm_nombre.toString());
     formData.append('sm_descripcion', this.editarSubmenu.value.sm_descripcion.toString());
     formData.append('sm_precio', this.editarSubmenu.value.sm_precio.toString());
-    formData.append('sm_cantidadPromedio', this.editarSubmenu.value.sm_cantidadPromedio.toString());
     formData.append('sm_estado', this.editarSubmenu.value.sm_estado.toString());
     this.submenusService.modificarSubmenu(this.sm_id, formData).subscribe(() => {
       this.toastr.success('Edición de información', 'Completa');

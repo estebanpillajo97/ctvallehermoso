@@ -36,6 +36,21 @@
                         </div>
                     </div>
                 </div>
+                
+            </div>
+            <br>
+            <div class="row input-group">
+                <div class="col-sm-3">
+                    <label for="" class="form-label">Precio</label>
+                    <input name="" type="text" class="form-control" id="" formControlName="sm_precio"
+                        placeholder="Ingresar precio 0.00">
+                    <div class="alert-danger"
+                        *ngIf="getSM_Precio('sm_precio')?.invalid && (getSM_Precio('sm_precio')?.touched || getSM_Precio('sm_precio')?.dirty)">
+                        <div *ngIf="getSM_Precio('sm_precio')?.errors?.required">
+                            El precio es requerido, escribir como en el ejemplo 0.00
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-5">
                     <label for="" class="form-label">Descripción</label>
                     <input name="" type="text" class="form-control" id="" formControlName="sm_descripcion"
@@ -50,20 +65,6 @@
                         </div>
                         <div *ngIf="getSM_Descripcion('sm_descripcion')?.errors?.maxlength">
                             Máximo 100 caracteres.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row input-group">
-                <div class="col-sm-3">
-                    <label for="" class="form-label">Precio</label>
-                    <input name="" type="text" class="form-control" id="" formControlName="sm_precio"
-                        placeholder="Ingresar precio 0.00">
-                    <div class="alert-danger"
-                        *ngIf="getSM_Precio('sm_precio')?.invalid && (getSM_Precio('sm_precio')?.touched || getSM_Precio('sm_precio')?.dirty)">
-                        <div *ngIf="getSM_Precio('sm_precio')?.errors?.required">
-                            El precio es requerido, escribir como en el ejemplo 0.00
                         </div>
                     </div>
                 </div>
