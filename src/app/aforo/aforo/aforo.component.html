@@ -33,3 +33,36 @@
     en el inicio para que los clientes puedan estar al pendiente.
   </h4>
 </div>
+<br>
+<div>
+  <!-- Tabla de Aforo -->
+  <img src="../../assets/img/Logo_ValleHermoso.png">
+  <h3>SALONES</h3>
+  <br>
+  <table class="table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Capacidad</th>
+        <th scope="col">Disponibilidad</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let salones of salones">
+        <th>{{salones.sa_id}}</th>
+        <td>{{salones.sa_nombre}}</td>
+        <td>{{salones.sa_capacidad}}</td>
+        <td>{{salones.sa_disponibilidad}}</td>
+        <td>{{salones.sa_estado}}</td>
+        <td>
+          <button mat-button class="btn btn-outline-warning" >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

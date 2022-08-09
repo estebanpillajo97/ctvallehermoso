@@ -8,6 +8,7 @@ import { AforoService } from 'src/app/services/aforo.service';
 export class AforoComponent implements OnInit {
   API_ENDPOINT='http://localhost/apirestvh/public/api';
   aforo:any;
+  salones:any;
   constructor(private aforoService:AforoService) { 
     this.getAforo();
   }
@@ -23,4 +24,13 @@ export class AforoComponent implements OnInit {
       alert('Ocurrió un error');
     });
   }
+  getSalones(){
+    this.aforoService.getSalones().subscribe((data:any)=>{
+      this.salones=data;
+    }, error=>{
+      console.log(error);
+      alert('Ocurrió un error');
+    })
+  }
+  //routerLink="/editar_salones/{{salones.af_id}}"
 }
