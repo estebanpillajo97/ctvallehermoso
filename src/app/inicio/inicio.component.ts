@@ -30,7 +30,7 @@ export class InicioComponent implements OnInit {
   arreglos: any;
   eventos: any;
   tipo_cedula:any;
-  aforo:any;
+  public aforo:any;
   numPersonasRes:any;
   numAdultos:any;
   numNinios:any;
@@ -166,6 +166,14 @@ export class InicioComponent implements OnInit {
       console.log(error);
       alert('Ocurrió un error');
     });
+  }
+  aforoTotal(){
+    this.aforoService.aforoTotal().subscribe(data=>{
+      this.aforo=data;
+      console.log(this.aforo);
+    }, error =>{
+      console.log(error);
+    })
   }
   mostrarReserva() {
 
