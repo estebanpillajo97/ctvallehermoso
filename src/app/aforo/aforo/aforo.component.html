@@ -1,33 +1,6 @@
 <div class="col">
   <h1>Aforo general del establecimiento</h1>
 </div>
-
-<div>
-  <!-- Tabla de Aforo -->
-  <img src="../../assets/img/Logo_ValleHermoso.png">
-  <h3>COMPLEJO TURÍSTICO VALLE HERMOSO</h3>
-  <br>
-  <table class="table">
-    <thead>
-      <tr class="text-center">
-        <th scope="col">Id</th>
-        <th scope="col">Número de aforo</th>
-        <th scope="col">Opciones</th>
-      </tr>
-    </thead>
-    <tbody class="text-center">
-      <tr *ngFor="let aforo of aforo">
-        <th>{{aforo.af_id}}</th>
-        <td>{{aforo.af_numeroAforo}}</td>
-        <td>
-          <button mat-button class="btn btn-outline-warning" routerLink="/editar_aforo/{{aforo.af_id}}">
-            <mat-icon>edit</mat-icon>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 <div>
   <h4>Este aforo es modificable, en el caso de existir remodelaciones en salones, se permitirá mostrar
     en el inicio para que los clientes puedan estar al pendiente.
