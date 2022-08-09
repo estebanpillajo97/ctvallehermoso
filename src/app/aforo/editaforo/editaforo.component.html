@@ -5,8 +5,12 @@
     <form [formGroup]="editarAforo">
         <div class="row input-group">
             <div class="col-sm-4">
-                <label for="" class="form-label">Ingrese el aforo</label>
-                <input type="text" class="form-control" formControlName="af_numeroAforo" placeholder="500">
+                <label for="" class="form-label">Ingrese el nombre</label>
+                <input type="text" class="form-control" formControlName="sa_nombre" placeholder="500">
+            </div>
+            <div class="col-sm-4">
+                <label for="" class="form-label">Ingrese la capacidad</label>
+                <input type="text" class="form-control" formControlName="sa_capacidad" placeholder="500">
             </div>
         </div>
         <button type="submit" class="btn btn-outline-success" (click)="updateAforo()">
