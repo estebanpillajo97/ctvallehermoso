@@ -25,11 +25,17 @@ export class EditaforoComponent implements OnInit {
     this.aforoService.obtenerSalones(this.sa_id).subscribe((result: any) => {
       console.log(result);
       this.editarAforo.setValue({
-        sa_nombre: result[0]['sa_nombre']
+        sa_nombre: result[0]['sa_nombre'],
+        sa_capacidad: result[0]['sa_capacidad'],
+        sa_disponibilidad: result[0]['sa_disponibilidad'],
+        sa_estado: result[0]['sa_estado']
       });
     });
     this.editarAforo = this.formulario.group({
-      af_numeroAforo: ['']
+      sa_nombre: [''],
+      sa_capacidad: [''],
+      sa_disponibilidad: [''],
+      sa_estado: ['']
     });
    }
 
@@ -39,6 +45,9 @@ export class EditaforoComponent implements OnInit {
   updateAforo() {
     let formData = new FormData();
     formData.append('sa_nombre', this.editarAforo.value.sa_nombre.toString());
+    formData.append('sa_capacidad', this.editarAforo.value.sa_capacidad.toString());
+    formData.append('sa_disponibilidad', this.editarAforo.value.sa_disponibilidad.toString());
+    formData.append('sa_estado', this.editarAforo.value.sa_estado.toString());
     this.aforoService.editarSalones(this.sa_id, formData).subscribe(() => {
       this.toastr.success('Edición de aforo', 'Completa');
       this.router.navigateByUrl('aforo');

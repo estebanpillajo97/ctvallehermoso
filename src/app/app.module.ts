@@ -72,7 +72,7 @@ import { InventarioComponent } from './inventario/inventario/inventario.componen
 const routes: Routes = [
   //Aforo
   { path: 'aforo', component: AforoComponent ,canActivate: [AuthAdminGuard]},
-  { path: 'editar_aforo/:af_id', component: EditaforoComponent, canActivate: [AuthAdminGuard] },
+  { path: 'editar_aforo/:sa_id', component: EditaforoComponent, canActivate: [AuthAdminGuard] },
   //Inventario
   { path: 'inventario', component:InventarioComponent, canActivate: [AuthAdminGuard]},
   //Usuarios

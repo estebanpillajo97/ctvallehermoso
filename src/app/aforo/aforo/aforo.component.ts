@@ -11,7 +11,7 @@ export class AforoComponent implements OnInit {
   salones:any;
 
   constructor(private aforoService:AforoService) { 
-
+    this.aforoTotal();
     this.getSalones();
   }
 
@@ -48,5 +48,5 @@ export class AforoComponent implements OnInit {
       console.log(error);
     })
   }
-  //routerLink="/editar_salones/{{salones.af_id}}"
+  
 }
