@@ -31,7 +31,6 @@ export class ArreglosService {
     const headers = new HttpHeaders();
     return this.httpClient.post(this.API_ENDPOINT + '/arreglos/' + arr_id + '/disable', { headers });
   }
-
   activarArreglos(arr_id:Arreglos){
     const headers = new HttpHeaders();
     return this.httpClient.post(this.API_ENDPOINT + '/arreglos/' + arr_id + '/enable', { headers });

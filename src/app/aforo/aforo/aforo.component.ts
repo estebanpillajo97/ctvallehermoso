@@ -33,5 +33,19 @@ export class AforoComponent implements OnInit {
       alert('Ocurrió un error');
     })
   }
+  inactivarSalones(id:any){
+    this.aforoService.inactivarSalones(id).subscribe((data)=>{
+      this.getSalones();
+    },error=>{
+      console.log(error);
+    });
+  }
+  activarSalones(id:any){
+    this.aforoService.activarSalones(id).subscribe((data)=>{
+      this.getSalones();
+    },error=>{
+      console.log(error);
+    });
+  }
   //routerLink="/editar_salones/{{salones.af_id}}"
 }

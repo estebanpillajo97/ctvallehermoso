@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Salones } from '../interfaces/salones';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,5 +22,13 @@ export class AforoService {
   }
   getSalones(){
     return this.httpClient.get(this.API_ENDPOINT + '/salones');
+  }
+  inactivarSalones(sa_id:Salones){
+    const headers = new HttpHeaders();
+    return this.httpClient.post(this.API_ENDPOINT + '/salones/' + sa_id + '/disable', { headers });
+  }
+  activarSalones(sa_id:Salones){
+    const headers = new HttpHeaders();
+    return this.httpClient.post(this.API_ENDPOINT + '/salones/' + sa_id + '/enable', { headers });
   }
 }
