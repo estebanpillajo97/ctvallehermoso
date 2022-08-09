@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditaforoComponent implements OnInit {
 
-  editarAforo: FormGroup;
+  //editarAforo: FormGroup;
   af_id: any;
 
   constructor(
@@ -21,7 +21,7 @@ export class EditaforoComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router
   ) {
-    this.af_id = this.ActivatedRoute.snapshot.paramMap.get('af_id');
+    /*this.af_id = this.ActivatedRoute.snapshot.paramMap.get('af_id');
     this.aforoService.obtenerAforo(this.af_id).subscribe((result: any) => {
       console.log(result);
       this.editarAforo.setValue({
@@ -30,18 +30,18 @@ export class EditaforoComponent implements OnInit {
     });
     this.editarAforo = this.formulario.group({
       af_numeroAforo: ['']
-    });
+    });*/
    }
 
   ngOnInit(): void {
   }
 
-  updateAforo() {
+  /*updateAforo() {
     let formData = new FormData();
     formData.append('af_numeroAforo', this.editarAforo.value.af_numeroAforo.toString());
     this.aforoService.editarAforo(this.af_id, formData).subscribe(() => {
       this.toastr.success('Edición de aforo', 'Completa');
       this.router.navigateByUrl('aforo')
     });
-  }
+  }*/
 }
