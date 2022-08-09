@@ -11,6 +11,7 @@ export class AforoComponent implements OnInit {
   salones:any;
   constructor(private aforoService:AforoService) { 
     this.getAforo();
+    this.getSalones();
   }
 
   ngOnInit(): void {
