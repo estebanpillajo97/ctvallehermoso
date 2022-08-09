@@ -7,26 +7,19 @@ import { AforoService } from 'src/app/services/aforo.service';
 })
 export class AforoComponent implements OnInit {
   API_ENDPOINT='http://localhost/apirestvh/public/api';
-  aforo:any;
+  public aforo:any;
   salones:any;
+
   constructor(private aforoService:AforoService) { 
-    this.getAforo();
+
     this.getSalones();
   }
 
   ngOnInit(): void {
   }
 
-  getAforo(){
-    this.aforoService.get().subscribe((data:any)=>{
-      this.aforo=data;
-    }, error=>{
-      console.log(error);
-      alert('Ocurrió un error');
-    });
-  }
   getSalones(){
-    this.aforoService.getSalones().subscribe((data:any)=>{
+    this.aforoService.get().subscribe((data:any)=>{
       this.salones=data;
     }, error=>{
       console.log(error);
@@ -46,6 +39,14 @@ export class AforoComponent implements OnInit {
     },error=>{
       console.log(error);
     });
+  }
+  aforoTotal(){
+    this.aforoService.aforoTotal().subscribe(data=>{
+      this.aforo=data;
+      console.log(this.aforo);
+    }, error =>{
+      console.log(error);
+    })
   }
   //routerLink="/editar_salones/{{salones.af_id}}"
 }

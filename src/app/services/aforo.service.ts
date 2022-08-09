@@ -10,17 +10,7 @@ export class AforoService {
 
   constructor(private httpClient:HttpClient) { }
 
-  get() {
-    return this.httpClient.get(this.API_ENDPOINT + '/aforo');
-  }
-  obtenerAforo(af_id: any) {
-    const headers = new HttpHeaders();
-    return this.httpClient.get(this.API_ENDPOINT + '/aforo/' + af_id, { headers: headers });
-  }
-  editarAforo(af_id: any, data: any) {
-    return this.httpClient.post(this.API_ENDPOINT + '/aforo/' + af_id, data);
-  }
-  getSalones(){
+  get(){
     return this.httpClient.get(this.API_ENDPOINT + '/salones');
   }
   inactivarSalones(sa_id:Salones){
@@ -30,5 +20,8 @@ export class AforoService {
   activarSalones(sa_id:Salones){
     const headers = new HttpHeaders();
     return this.httpClient.post(this.API_ENDPOINT + '/salones/' + sa_id + '/enable', { headers });
+  }
+  aforoTotal(){
+    return this.httpClient.get(this.API_ENDPOINT + '/aforo');
   }
 }
