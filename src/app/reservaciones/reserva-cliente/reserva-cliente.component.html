@@ -59,6 +59,7 @@
     <thead>
       <tr class="text-center">
         <th scope="col">Id</th>
+        <th scope="col">Comprobante</th>
         <th scope="col">Nombres</th>
         <th scope="col">Cédula</th>
         <th scope="col">Tipo Cédula</th>
@@ -74,6 +75,7 @@
       <tr *ngFor="let reservaCliente of reservaCliente | paginate: { itemsPerPage: 10, currentPage: p }">
 
         <th>{{reservaCliente.rc_id}}</th>
+        <td><button class="btn btn-outline-info" (click)="modal.open(contenido)">Ver Comprobante</button></td>
         <td>{{reservaCliente.rc_nombreCliente}}</td>
         <td>{{reservaCliente.rc_cedula}}</td>
         <td>{{reservaCliente.tc_tipoCedula}}</td>
@@ -101,3 +103,17 @@
 
 </div>
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+<ng-template #contenido let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Comprobante</h4>
+    <button class="close" aria-label="close" type="button" (click)="modal.dismiss()"></button>
+  </div>
+  
+  <div class="modal-body">
+    <img src="" alt="">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-ouline-success" (click)="modal.close()">OK!</button>
+  </div>
+</ng-template>
