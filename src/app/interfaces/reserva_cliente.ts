@@ -1,6 +1,7 @@
 export interface ReservaClientes{
     rc_id?:number;
     res_id:number;
+    rc_comprobante:string;
     rc_nombreCliente:string;
     rc_cedula:string;
     rc_celular:string;
