@@ -68,10 +68,12 @@ import { AforoComponent } from './aforo/aforo/aforo.component';
 import { EditaforoComponent } from './aforo/editaforo/editaforo.component';
 import { ListadoSubmenusComponent } from './submenus/listado-submenus/listado-submenus.component';
 import { InventarioComponent } from './inventario/inventario/inventario.component';
+import { FormaforoComponent } from './aforo/formaforo/formaforo.component';
 
 const routes: Routes = [
   //Aforo
   { path: 'aforo', component: AforoComponent ,canActivate: [AuthAdminGuard]},
+  { path: 'crear_aforo', component: FormaforoComponent,canActivate: [AuthAdminGuard]},
   { path: 'editar_aforo/:sa_id', component: EditaforoComponent, canActivate: [AuthAdminGuard] },
   //Inventario
   { path: 'inventario', component:InventarioComponent, canActivate: [AuthAdminGuard]},
@@ -158,7 +160,8 @@ const routes: Routes = [
     AforoComponent,
     EditaforoComponent,
     ListadoSubmenusComponent,
-    InventarioComponent
+    InventarioComponent,
+    FormaforoComponent
   ],
   imports: [
     BrowserModule,

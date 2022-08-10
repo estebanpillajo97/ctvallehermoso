@@ -13,6 +13,9 @@ export class AforoService {
   get(){
     return this.httpClient.get(this.API_ENDPOINT + '/salones');
   }
+  agregarSalon(salones:any){
+    return this.httpClient.post(this.API_ENDPOINT + '/salones', salones);
+  }
   inactivarSalones(sa_id:Salones){
     const headers = new HttpHeaders();
     return this.httpClient.post(this.API_ENDPOINT + '/salones/' + sa_id + '/disable', { headers });
@@ -31,4 +34,5 @@ export class AforoService {
   aforoTotal(){
     return this.httpClient.get(this.API_ENDPOINT + '/aforo');
   }
+
 }
