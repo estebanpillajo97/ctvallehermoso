@@ -10,7 +10,7 @@
                     <label for="" class="form-label">Nombre</label>
                     <input name="" type="text" class="form-control" id="" formControlName="sa_nombre"
                         aria-describedby="helpId" placeholder="Ingresar nombre">
-                    <div class="alert-danger"
+                    <div class="text-danger"
                         *ngIf="getSa_Nombre('sa_nombre')?.invalid && (getSa_Nombre('sa_nombre')?.touched || getSa_Nombre('sa_nombre')?.dirty)">
                         <div *ngIf="getSa_Nombre('sa_nombre')?.errors?.required">
                             Nombre es requerido.
@@ -24,7 +24,7 @@
                     <label for="" class="form-label">Capacidad</label>
                     <input name="" type="text" class="form-control" id="" formControlName="sa_capacidad"
                         aria-describedby="helpId" placeholder="Ingresar nombre">
-                    <div class="alert-danger"
+                    <div class="text-danger"
                         *ngIf="getSa_Capacidad('sa_capacidad')?.invalid && (getSa_Capacidad('sa_capacidad')?.touched || getSa_Capacidad('sa_capacidad')?.dirty)">
                         <div *ngIf="getSa_Capacidad('sa_capacidad')?.errors?.required">
                             Nombre es requerido.
@@ -49,7 +49,7 @@
                         <option>Disponible</option>
                         <option>Ocupado</option>
                     </select>
-                    <div class="alert-danger"
+                    <div class="text-danger"
                         *ngIf="getSa_Disponibilidad('sa_disponibilidad')?.invalid && (getSa_Disponibilidad('sa_disponibilidad')?.touched)">
                         <div *ngIf="getSa_Disponibilidad('sa_disponibilidad')?.errors?.required">
                             Por favor escoja la disponibilidad
@@ -64,7 +64,7 @@
                         <option>Activo</option>
                         <option>Inactivo</option>
                     </select>
-                    <div class="alert-danger"
+                    <div class="text-danger"
                         *ngIf="getSa_Estado('sa_estado')?.invalid && (getSa_Estado('sa_estado')?.touched)">
                         <div *ngIf="getSa_Estado('sa_estado')?.errors?.required">
                             Por favor escoja un estado
