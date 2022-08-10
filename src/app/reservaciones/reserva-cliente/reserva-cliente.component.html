@@ -59,6 +59,7 @@
     <thead>
       <tr class="text-center">
         <th scope="col">Id</th>
+        <th scope="col">Comprobante</th>
         <th scope="col">Nombres</th>
         <th scope="col">Cédula</th>
         <th scope="col">Tipo Cédula</th>
@@ -74,6 +75,7 @@
       <tr *ngFor="let reservaCliente of reservaCliente | paginate: { itemsPerPage: 10, currentPage: p }">
 
         <th>{{reservaCliente.rc_id}}</th>
+        <td>{{reservaCliente.rc_comprobante}}</td>
         <td>{{reservaCliente.rc_nombreCliente}}</td>
         <td>{{reservaCliente.rc_cedula}}</td>
         <td>{{reservaCliente.tc_tipoCedula}}</td>
