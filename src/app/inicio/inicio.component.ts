@@ -64,6 +64,7 @@ export class InicioComponent implements OnInit {
       rc_fecha: [(new Date()).toISOString().substring(0,10), [Validators.required]],
       rc_hora: ['', [Validators.required]],
       np_id: ['', [Validators.required]],
+      rc_comprobante: [],
       rc_descripcion: ['', [Validators.minLength(5), Validators.maxLength(255)]],
       tc_id: ['', Validators.required]
     });
@@ -200,6 +201,7 @@ export class InicioComponent implements OnInit {
     formData.append('rc_fecha', this.formularioReserva.value.rc_fecha.toString());
     formData.append('rc_hora', this.formularioReserva.value.rc_hora.toString());
     formData.append('np_id', this.formularioReserva.value.np_id.toString());
+    formData.append('rc_comprobante', this.formularioReserva.value.rc_comprobante.toString());
     formData.append('rc_descripcion', this.formularioReserva.value.rc_descripcion.toString());
     formData.append('tc_id', this.formularioReserva.value.tc_id.toString());
     this.ReservaClienteService.agregarReservaCliente(formData).subscribe(() => {
