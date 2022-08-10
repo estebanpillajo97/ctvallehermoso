@@ -75,7 +75,7 @@
       <tr *ngFor="let reservaCliente of reservaCliente | paginate: { itemsPerPage: 10, currentPage: p }">
 
         <th>{{reservaCliente.rc_id}}</th>
-        <td><a href="https://apirestvh.herokuapp.com/uploads/{{reservaCliente.rc_comprobante}}"></a></td>
+        <td><img src="https://apirestvh.herokuapp.com/uploads/{{reservaCliente.rc_comprobante}}" alt="" width="100px" height="100px"></td>
         <td>{{reservaCliente.rc_nombreCliente}}</td>
         <td>{{reservaCliente.rc_cedula}}</td>
         <td>{{reservaCliente.tc_tipoCedula}}</td>
