@@ -47,6 +47,18 @@ export class FormaforoComponent implements OnInit {
       this.toastr.success('Regristo de salón', 'Completo');
       this.router.navigateByUrl('salones');
     });
+  }
 
+  getSa_Nombre(sa_nombre: string) {
+    return this.formularioAforo.get(sa_nombre);
+  }
+  getSa_Capacidad(sa_capacidad: string) {
+    return this.formularioAforo.get(sa_capacidad);
+  }
+  getSa_Disponibilidad(sa_disponibilidad: string) {
+    return this.formularioAforo.get(sa_disponibilidad);
+  }
+  getSa_Estado(sa_estado: string) {
+    return this.formularioAforo.get(sa_estado);
   }
 }
