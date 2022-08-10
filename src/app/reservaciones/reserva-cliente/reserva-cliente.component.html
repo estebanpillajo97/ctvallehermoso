@@ -106,14 +106,14 @@
 
 <ng-template #contenido let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Comprobante</h4>
-    <button class="close" aria-label="close" type="button" (click)="modal.dismiss()"></button>
+    <h2 class="modal-title">Comprobante</h2>
+    <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">X</button>
   </div>
   
   <div class="modal-body">
-    <img src="" alt="">
+    <img src="https://apirestvh.herokuapp.com/uploads/{{menus.men_foto}}"" alt="">
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-ouline-success" (click)="modal.close()">OK!</button>
+    <button type="button" class="btn btn-outline-success" (click)="modal.close()">OK!</button>
   </div>
 </ng-template>
