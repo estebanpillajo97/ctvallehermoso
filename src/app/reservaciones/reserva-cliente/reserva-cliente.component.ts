@@ -6,6 +6,7 @@ import html2canvas from 'html2canvas';
 //xlsx
 import * as XLSX from 'xlsx';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-reserva-cliente',
   templateUrl: './reserva-cliente.component.html',
@@ -22,11 +23,18 @@ export class ReservaClienteComponent implements OnInit {
   rc_fechaDesde: any;
   rc_fechaHasta: any;
   fileName = 'reservaCliente.xlsx';
-  constructor(private ReservaClienteService: ReservaClienteService) {
+  constructor(
+    private ReservaClienteService: ReservaClienteService,
+    private modal:NgbModal
+    ) {
     this.getReservaCliente();
   }
 
   ngOnInit(): void {
+  }
+
+  open(contenido:any){
+    this.modal.open(contenido, {size:'lg'});
   }
 
   getReservaCliente() {
