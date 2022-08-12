@@ -13,6 +13,7 @@ export interface EventoClientes{
     ec_estado:string;
     sm_id:number;
     tc_id:number;
+    sa_id:number;
     created_at?:string;
     update_at?:string;
 }

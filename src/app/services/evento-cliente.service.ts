@@ -56,6 +56,10 @@ export class EventoClienteService {
     const headers = new HttpHeaders();
     return this.httpClient.get(this.API_ENDPOINT+ '/submenu_inventario_menus/'+sm_id);
   }
+  inventarioFinal(sm_id:any,ec_fechaDesde:any, ec_fechaHasta:any){
+    const headers = new HttpHeaders();
+    return this.httpClient.get(this.API_ENDPOINT+ '/inventario_final/'+sm_id+'_'+ec_fechaDesde+'_'+ec_fechaHasta);
+  }
   inventarioSubmenuTabla(sm_id:any,ec_fechaDesde:any, ec_fechaHasta:any){
     const headers = new HttpHeaders();
     return this.httpClient.get(this.API_ENDPOINT+ '/submenu_inventario_tabla/'+sm_id+'_'+ec_fechaDesde+'_'+ec_fechaHasta);

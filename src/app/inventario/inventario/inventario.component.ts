@@ -15,6 +15,7 @@ export class InventarioComponent implements OnInit {
   public inventarioSubmenuAdulto:any;
   public inventarioSubmenuNinio:any;
   public inventarioMenus:any;
+  public inventarioFinal:any;
   inventarioSubmenuTabla:any;
   constructor(private eventoClienteService:EventoClienteService,
     private submenusService:SubmenusService) { 
@@ -47,6 +48,13 @@ export class InventarioComponent implements OnInit {
       this.eventoClienteService.inventarioMenuses(this.sm_id).subscribe((data)=>{
         this.inventarioMenus = data;
         console.log(this.inventarioMenus);
+      }, error =>{
+        console.log(error);
+        alert('Ocurrió un error');
+      });
+      this.eventoClienteService.inventarioFinal(this.sm_id,this.ec_fechaDesde,this.ec_fechaHasta).subscribe((data)=>{
+        this.inventarioFinal = data;
+        console.log(this.inventarioFinal);
       }, error =>{
         console.log(error);
         alert('Ocurrió un error');

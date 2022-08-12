@@ -11,6 +11,7 @@ export interface ReservaClientes{
     rc_descripcion:string;
     rc_estado:string;
     tc_id:number;
+    sa_id:number;
     created_at?:string;
     update_at?:string;
 }
