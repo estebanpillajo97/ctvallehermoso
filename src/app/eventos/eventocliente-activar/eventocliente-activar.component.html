@@ -18,7 +18,6 @@
             <select name="" id="" class="form-select" formControlName="tc_id">
                 <option value="" disabled selected>Seleccionar</option>
                 <option *ngFor="let tipocedula of tipocedula">{{tipocedula.tc_tipoCedula}}</option>
-
             </select>
 
         </div>
@@ -75,6 +74,20 @@
 
             </select>
             <small class="text-danger">En el caso de ser más, explicar en descripción</small>
+        </div>
+    </div>
+    <div class="row input-group">
+        <div class="col-sm-6">
+            <label for="">Comprobante</label>
+            <input type="file" name="" id="" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label for="">Salón</label>
+            <select name="" id="" formControlName="sa_id" class="form-select">
+                <option value="" disabled selected>Seleccionar</option>
+                <option *ngFor="let salon of salon" value="{{salon.sa_id}}">{{salon.sa_nombre}}</option>
+
+            </select>
         </div>
     </div>
     <div class="row input-group">

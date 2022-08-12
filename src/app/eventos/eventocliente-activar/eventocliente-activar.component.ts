@@ -5,6 +5,7 @@ import { EventosService } from 'src/app/services/eventos.service';
 import { EventoClienteService } from 'src/app/services/evento-cliente.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { AforoService } from 'src/app/services/aforo.service';
 @Component({
   selector: 'app-eventocliente-activar',
   templateUrl: './eventocliente-activar.component.html',
@@ -18,11 +19,13 @@ export class EventoclienteActivarComponent implements OnInit {
   numAdultos: any;
   numNinios: any;
   tipocedula: any;
+  salon:any;
   formularioEvento: FormGroup;
   constructor(
     private arreglosService: ArreglosService,
     private eventosService: EventosService,
     private EventoClienteService: EventoClienteService,
+    private salonService:AforoService,
     private ActivatedRoute: ActivatedRoute,
     private formularioEve: FormBuilder,
     private toastr: ToastrService,
@@ -39,6 +42,7 @@ export class EventoclienteActivarComponent implements OnInit {
         ec_hora: result[0]['ec_hora'],
         na_id: result[0]['na_id'],
         nn_id: result[0]['nn_id'],
+        sa_id: result[0]['sa_id'],
         ec_descripcion: result[0]['ec_descripcion'],
         ec_estado: result[0]['ec_estado'],
         tc_id: result[0]['tc_id']
@@ -55,6 +59,7 @@ export class EventoclienteActivarComponent implements OnInit {
       ec_hora: [''],
       na_id: [''],
       nn_id: [''],
+      sa_id: [''],
       ec_descripcion: [''],
       ec_estado: ['',Validators.required],
       tc_id: ['']
@@ -98,6 +103,12 @@ export class EventoclienteActivarComponent implements OnInit {
     this.eventosService.getTipoCedula().subscribe((res: any) => {
       this.tipocedula = res;
       console.log(this.tipocedula);
+    })
+  }
+  getSalones(){
+    this.salonService.get().subscribe((res: any) => {
+      this.salon = res;
+      console.log(this.salon);
     })
   }
 
