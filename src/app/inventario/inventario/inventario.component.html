@@ -30,6 +30,25 @@
 </div>
 
 <div *ngIf="Inventario==true">
+    <h3>Inventario</h3>
+    <table class="table">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">Cantidad Promedio</th>
+                <th scope="col">Inventario</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr>
+                <td><strong>{{inventarioMenus}}</strong></td>
+                <td><strong>{{inventarioMenus}}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <h3>Tabla de eventos</h3>
+    <br>
     <table class="table">
         <thead>
             <tr class="text-center">
@@ -47,7 +66,6 @@
                 <td>{{inventarioSubmenuTabla.sm_nombre}}</td>
                 <td>{{inventarioSubmenuTabla.na_numeroAdultos}}</td>
                 <td>{{inventarioSubmenuTabla.nn_numeroNinios}}</td>
-                <td>{{inventarioMenus}}</td>
             </tr>
         </tbody>
     </table>
