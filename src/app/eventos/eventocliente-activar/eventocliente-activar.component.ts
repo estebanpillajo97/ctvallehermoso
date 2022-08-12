@@ -72,6 +72,7 @@ export class EventoclienteActivarComponent implements OnInit {
     this.getNumAdultos();
     this.getNumNinios();
     this.getTipoCedula();
+    this.getSalones();
   }
 
   getEventos() {
