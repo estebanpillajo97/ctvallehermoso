@@ -4,6 +4,7 @@ import { ReservacionesService } from 'src/app/services/reservaciones.service';
 import { ReservaClienteService } from 'src/app/services/reserva-cliente.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AforoService } from 'src/app/services/aforo.service';
 @Component({
   selector: 'app-reservacliente-activar',
   templateUrl: './reservacliente-activar.component.html',
@@ -14,10 +15,12 @@ export class ReservaclienteActivarComponent implements OnInit {
   reserva: any;
   numpersonas:any;
   tipocedula:any;
+  salon:any;
   formularioReserva: FormGroup;
   constructor(
     private reservacionService: ReservacionesService,
     private ReservaClienteService: ReservaClienteService,
+    private salonService: AforoService,
     private ActivatedRoute: ActivatedRoute,
     private formularioRes: FormBuilder,
     private toastr: ToastrService,
@@ -59,6 +62,7 @@ export class ReservaclienteActivarComponent implements OnInit {
     this.getReservas();
     this.getNumPersonas();
     this.getTipoCedula();
+    this.getSalones();
   }
   getReservas() {
     this.reservacionService.get().subscribe((res: any) => {
@@ -76,6 +80,12 @@ export class ReservaclienteActivarComponent implements OnInit {
     this.reservacionService.getTipoCedula().subscribe((res:any)=>{
       this.tipocedula = res;
       console.log(this.tipocedula);
+    })
+  }
+  getSalones(){
+    this.salonService.get().subscribe((res: any) => {
+      this.salon = res;
+      console.log(this.salon);
     })
   }
 
