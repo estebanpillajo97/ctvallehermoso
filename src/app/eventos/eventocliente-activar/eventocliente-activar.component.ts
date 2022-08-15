@@ -124,6 +124,7 @@ export class EventoclienteActivarComponent implements OnInit {
     formData.append('ec_hora', this.formularioEvento.value.ec_hora.toString());
     formData.append('na_id', this.formularioEvento.value.na_id.toString());
     formData.append('nn_id', this.formularioEvento.value.nn_id.toString());
+    formData.append('sa_id', this.formularioEvento.value.sa_id.toString());
     formData.append('ec_descripcion', this.formularioEvento.value.ec_descripcion.toString());
     formData.append('ec_estado', this.formularioEvento.value.ec_estado.toString());
     formData.append('tc_id', this.formularioEvento.value.tc_id.toString());
