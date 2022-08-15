@@ -34,6 +34,7 @@ export class ReservaclienteActivarComponent implements OnInit {
         rc_hora: result[0]['rc_hora'],
         np_id: result[0]['np_id'],
         tc_id: result[0]['tc_id'],
+        sa_id: result[0]['sa_id'],
         rc_descripcion: result[0]['rc_descripcion'],
         rc_estado: result[0]['rc_estado']
 
@@ -48,6 +49,7 @@ export class ReservaclienteActivarComponent implements OnInit {
       rc_hora: [''],
       np_id: [''],
       tc_id: [''],
+      sa_id: [''],
       rc_descripcion: [''],
       rc_estado: ['',Validators.required]
     });
@@ -87,6 +89,7 @@ export class ReservaclienteActivarComponent implements OnInit {
     formData.append('rc_hora', this.formularioReserva.value.rc_hora.toString());
     formData.append('np_id', this.formularioReserva.value.np_id.toString());
     formData.append('tc_id', this.formularioReserva.value.tc_id.toString());
+    formData.append('sa_id', this.formularioReserva.value.sa_id.toString());
     formData.append('rc_descripcion', this.formularioReserva.value.rc_descripcion.toString());
     formData.append('rc_estado', this.formularioReserva.value.rc_estado.toString());
     this.ReservaClienteService.editarReservaCliente(this.elID, formData).subscribe(() => {

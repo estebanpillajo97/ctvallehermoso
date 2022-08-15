@@ -57,6 +57,20 @@
         </div>
     </div>
     <div class="row input-group">
+        <div class="col-sm-6">
+            <label for="">Comprobante</label>
+            <input type="file" name="" id="" class="form-control">
+        </div>
+        <div class="col-sm-4">
+            <label for="">Salón</label>
+            <select name="" id="" formControlName="sa_id" class="form-select">
+                <option value="" disabled selected>Seleccionar</option>
+                <option *ngFor="let salon of salon" value="{{salon.sa_id}}">{{salon.sa_nombre}}</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="row input-group">
         <div class="col-sm-8">
             <label for="">Descripción</label>
             <textarea name="" id="" cols="5" rows="1" formControlName="rc_descripcion" class="form-control"></textarea>
