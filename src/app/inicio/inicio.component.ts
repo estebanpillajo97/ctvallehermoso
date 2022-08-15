@@ -64,7 +64,7 @@ export class InicioComponent implements OnInit {
       rc_fecha: [(new Date()).toISOString().substring(0,10), [Validators.required]],
       rc_hora: ['', [Validators.required]],
       np_id: ['', [Validators.required]],
-      rc_comprobante: [],
+      rc_comprobante: [''],
       rc_descripcion: ['', [Validators.minLength(5), Validators.maxLength(255)]],
       tc_id: ['', Validators.required]
     });
