@@ -80,6 +80,7 @@ export class InicioComponent implements OnInit {
       nn_id: ['', [Validators.required]],
       ec_descripcion: ['', [Validators.minLength(5), Validators.maxLength(255)]],
       sm_id: ['', [Validators.required]],
+      ec_comprobante: [''],
       tc_id:['', Validators.required]
     });
   }
@@ -222,6 +223,7 @@ export class InicioComponent implements OnInit {
     formData.append('ec_hora', this.formularioEvento.value.ec_hora.toString());
     formData.append('na_id', this.formularioEvento.value.na_id.toString());
     formData.append('nn_id', this.formularioEvento.value.nn_id.toString());
+    formData.append('ec_comprobante', this.formularioEvento.value.ec_comprobante.toString());
     formData.append('ec_descripcion', this.formularioEvento.value.ec_descripcion.toString());
     formData.append('sm_id', this.formularioEvento.value.sm_id.toString());
     formData.append('tc_id', this.formularioEvento.value.tc_id.toString());
