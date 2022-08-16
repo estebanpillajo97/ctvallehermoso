@@ -114,7 +114,18 @@
   
   <div class="modal-body">
     <table class="table" *ngFor="let comprobante of comprobante">
-      <img class="img" src="https://apirestvh.herokuapp.com/uploads/{{comprobante.rc_comprobante}}" alt="" height="250px" width="250px">
+      <thead class="text-center">
+        <tr>
+          <th scope="col">Comprobante</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr>
+          <td>
+            <img class="img" src="https://apirestvh.herokuapp.com/uploads/{{comprobante.rc_comprobante}}" alt="" height="250px" width="250px">
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div>
   <div class="modal-footer">
