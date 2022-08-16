@@ -35,6 +35,7 @@ export class ReservaClienteComponent implements OnInit {
 
   open(contenido:any){
     this.modal.open(contenido, {size:'lg'});
+    
   }
 
   getReservaCliente() {
