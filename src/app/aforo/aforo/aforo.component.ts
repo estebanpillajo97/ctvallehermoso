@@ -14,6 +14,7 @@ export class AforoComponent implements OnInit {
   sa_id:any;
   rc_fechaDesde:any;
   rc_fechaHasta:any;
+  Inventario:Boolean=false;
   constructor(private aforoService:AforoService) { 
     this.aforoTotal();
     this.getSalones();
@@ -53,11 +54,17 @@ export class AforoComponent implements OnInit {
     })
   }
   inventarioAforo(){
-    this.aforoService.inventarioAforo(this.sa_id,this.rc_fechaDesde,this.rc_fechaHasta).subscribe(data=>{
-      this.inventarioAforoFinal = data;
-    }, error =>{
-      console.log(error);
-      alert('Ocurrió un error');
-    })
+    if(this.sa_id=="" && this.rc_fechaDesde=="" && this.rc_fechaHasta==""){
+      this.Inventario=false;
+    }else{
+      this.Inventario=true;
+      this.aforoService.inventarioAforo(this.sa_id,this.rc_fechaDesde,this.rc_fechaHasta).subscribe(data=>{
+        this.inventarioAforoFinal = data;
+      }, error =>{
+        console.log(error);
+        alert('Ocurrió un error');
+      })
+    }
+    
   }
 }
