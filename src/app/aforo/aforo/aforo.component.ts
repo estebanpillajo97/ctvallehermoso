@@ -10,6 +10,7 @@ export class AforoComponent implements OnInit {
   public aforo:any;
   salones:any;
   public inventarioAforoFinal:any;
+  public inventarioSalon:any;
   sa_id:any;
   rc_fechaDesde:any;
   rc_fechaHasta:any;
