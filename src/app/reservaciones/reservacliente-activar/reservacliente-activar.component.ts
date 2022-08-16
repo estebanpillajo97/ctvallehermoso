@@ -16,6 +16,7 @@ export class ReservaclienteActivarComponent implements OnInit {
   numpersonas:any;
   tipocedula:any;
   salon:any;
+  files: any;
   formularioReserva: FormGroup;
   constructor(
     private reservacionService: ReservacionesService,
@@ -38,6 +39,7 @@ export class ReservaclienteActivarComponent implements OnInit {
         np_id: result[0]['np_id'],
         tc_id: result[0]['tc_id'],
         sa_id: result[0]['sa_id'],
+        rc_comprobante: [''],
         rc_descripcion: result[0]['rc_descripcion'],
         rc_estado: result[0]['rc_estado']
 
@@ -64,6 +66,10 @@ export class ReservaclienteActivarComponent implements OnInit {
     this.getNumPersonas();
     this.getTipoCedula();
     this.getSalones();
+  }
+  uploadImage(event: any) {
+    this.files = event.target.files[0];
+    console.log(this.files);
   }
   getReservas() {
     this.reservacionService.get().subscribe((res: any) => {
@@ -102,6 +108,7 @@ export class ReservaclienteActivarComponent implements OnInit {
     formData.append('tc_id', this.formularioReserva.value.tc_id.toString());
     formData.append('sa_id', this.formularioReserva.value.sa_id.toString());
     formData.append('rc_comprobante', this.formularioReserva.value.rc_comprobante.toString());
+    formData.append('rc_comprobante', this.files);
     formData.append('rc_descripcion', this.formularioReserva.value.rc_descripcion.toString());
     formData.append('rc_estado', this.formularioReserva.value.rc_estado.toString());
     this.ReservaClienteService.editarReservaCliente(this.elID, formData).subscribe(() => {
