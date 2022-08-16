@@ -20,6 +20,7 @@ export class EventoclienteActivarComponent implements OnInit {
   numNinios: any;
   tipocedula: any;
   salon:any;
+  files: any;
   formularioEvento: FormGroup;
   constructor(
     private arreglosService: ArreglosService,
@@ -43,6 +44,7 @@ export class EventoclienteActivarComponent implements OnInit {
         na_id: result[0]['na_id'],
         nn_id: result[0]['nn_id'],
         sa_id: result[0]['sa_id'],
+        ec_comprobante: [''],
         ec_descripcion: result[0]['ec_descripcion'],
         ec_estado: result[0]['ec_estado'],
         tc_id: result[0]['tc_id']
@@ -60,6 +62,7 @@ export class EventoclienteActivarComponent implements OnInit {
       na_id: [''],
       nn_id: [''],
       sa_id: [''],
+      ec_comprobante: [''],
       ec_descripcion: [''],
       ec_estado: ['',Validators.required],
       tc_id: ['']
@@ -74,7 +77,10 @@ export class EventoclienteActivarComponent implements OnInit {
     this.getTipoCedula();
     this.getSalones();
   }
-
+  uploadImage(event: any) {
+    this.files = event.target.files[0];
+    console.log(this.files);
+  }
   getEventos() {
     this.eventosService.get().subscribe((res: any) => {
       this.eventos = res;
@@ -125,6 +131,7 @@ export class EventoclienteActivarComponent implements OnInit {
     formData.append('na_id', this.formularioEvento.value.na_id.toString());
     formData.append('nn_id', this.formularioEvento.value.nn_id.toString());
     formData.append('sa_id', this.formularioEvento.value.sa_id.toString());
+    formData.append('ec_comprobante', this.files);
     formData.append('ec_descripcion', this.formularioEvento.value.ec_descripcion.toString());
     formData.append('ec_estado', this.formularioEvento.value.ec_estado.toString());
     formData.append('tc_id', this.formularioEvento.value.tc_id.toString());

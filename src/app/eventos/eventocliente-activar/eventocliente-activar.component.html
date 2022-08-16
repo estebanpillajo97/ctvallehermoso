@@ -79,14 +79,14 @@
     <div class="row input-group">
         <div class="col-sm-6">
             <label for="">Comprobante</label>
-            <input type="file" name="" id="" class="form-control">
+            <input type="file" name="ec_comprobante" id="ec_comprobante" class="form-control" 
+            formControlName="ec_comprobante" (change)="uploadImage($event)">
         </div>
         <div class="col-sm-4">
             <label for="">Salón</label>
             <select name="" id="" formControlName="sa_id" class="form-select">
                 <option value="" disabled selected>Seleccionar</option>
                 <option *ngFor="let salon of salon" value="{{salon.sa_id}}">{{salon.sa_nombre}}</option>
-
             </select>
         </div>
     </div>

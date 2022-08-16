@@ -63,6 +63,7 @@
     <thead>
       <tr class="text-center">
         <th scope="col">Id</th>
+        <th scope="col">Comprobante</th>
         <th scope="col">Nombres</th>
         <th scope="col">Cédula</th>
         <th scope="col">Tipo Cédula</th>
@@ -82,6 +83,7 @@
       <tr *ngFor="let eventoCliente of eventoCliente | paginate: { itemsPerPage: 10, currentPage: p }">
 
         <th>{{eventoCliente.ec_id}}</th>
+        <td><td><img src="https://apirestvh.herokuapp.com/uploads/{{eventoCliente.ec_comprobante}}" alt="" height="150px" width="150px"></td></td>
         <td>{{eventoCliente.ec_nombreCliente}}</td>
         <td>{{eventoCliente.ec_cedula}}</td>
         <td>{{eventoCliente.tc_tipoCedula}}</td>

@@ -105,17 +105,3 @@
 
 </div>
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
-
-<ng-template #contenido let-modal>
-  <div class="modal-header">
-    <h2 class="modal-title">Comprobante</h2>
-    <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">X</button>
-  </div>
-  
-  <div class="modal-body" *ngFor="let comprobante of comprobante">
-    <img src="https://apirestvh.herokuapp.com/uploads/{{comprobante.rc_comprobante}}" alt="">
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-success" (click)="modal.close()">OK!</button>
-  </div>
-</ng-template>
