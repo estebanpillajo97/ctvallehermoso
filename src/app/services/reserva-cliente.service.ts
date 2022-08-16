@@ -50,7 +50,7 @@ export class ReservaClienteService {
     const headers = new HttpHeaders();
     return this.httpClient.get(this.API_ENDPOINT + '/reservas_cliente_inactivos', { headers });
   }
-  verComprobante(rc_id:any){
+  verComprobante(rc_id: ReservaClientes){
     return this.httpClient.get(this.API_ENDPOINT + '/comprobanteReservaCliente/' + rc_id);
     
   }
