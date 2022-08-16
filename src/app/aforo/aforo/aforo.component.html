@@ -57,7 +57,7 @@
 </div>
 <br>
 <div class="col">
-  <h1>Aforo por salones</h1>
+  <h2>Aforo por salones</h2>
   <p></p>
   <div class="row">
     <div class="row input-group">
@@ -78,9 +78,25 @@
       </div>
       <div class="col-sm-1">
         <label for=""> </label>
-        <button mat-button class="btn btn-outline-primary"><i class="fa fa-search fa-lg"></i>
+        <button mat-button class="btn btn-outline-primary" (click)="inventarioAforo()"><i class="fa fa-search fa-lg"></i>
           Filtrar</button>
       </div>
     </div>
   </div>
 </div>
+<br>
+<div class="col" *ngIf="Inventario==true">
+  <table class="table">
+      <thead>
+          <tr class="text-center">
+              <th scope="col">Aforo Final</th>
+          </tr>
+      </thead>
+      <tbody class="text-center">
+          <tr>
+              <td><strong>{{inventarioAforoFinal}}</strong></td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<br>
