@@ -61,13 +61,20 @@
   <p></p>
   <div class="row">
     <div class="row input-group">
+      <div class="col-sm-4">
+        <label for="">Salón</label>
+        <select  [(ngModel)]="sa_id" class="form-select">
+          <option value="" disabled selected>Seleccionar</option>
+          <option *ngFor="let salones of salones" value="{{salones.sa_id}}">{{salones.sa_nombre}}</option>
+      </select>
+      </div>
       <div class="col-sm-2">
         <label for="">Fecha desde</label>
-        <input type="date" name="" id="" class="form-control">
+        <input type="date" name="" id="" class="form-control" [(ngModel)]="rc_fechaDesde">
       </div>
       <div class="col-sm-2">
         <label for="">Fecha hasta</label>
-        <input type="date" name="" id="" class="form-control">
+        <input type="date" name="" id="" class="form-control" [(ngModel)]="rc_fechaHasta">
       </div>
       <div class="col-sm-1">
         <label for=""> </label>
@@ -76,3 +83,4 @@
       </div>
     </div>
   </div>
+</div>

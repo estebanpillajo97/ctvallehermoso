@@ -9,7 +9,10 @@ export class AforoComponent implements OnInit {
   API_ENDPOINT='http://localhost/apirestvh/public/api';
   public aforo:any;
   salones:any;
-
+  public inventarioAforoFinal:any;
+  sa_id:any;
+  rc_fechaDesde:any;
+  rc_fechaHasta:any;
   constructor(private aforoService:AforoService) { 
     this.aforoTotal();
     this.getSalones();
@@ -48,5 +51,12 @@ export class AforoComponent implements OnInit {
       console.log(error);
     })
   }
-  
+  inventarioAforo(){
+    this.aforoService.inventarioAforo(this.sa_id,this.rc_fechaDesde,this.rc_fechaHasta).subscribe(data=>{
+      this.inventarioAforoFinal = data;
+    }, error =>{
+      console.log(error);
+      alert('Ocurrió un error');
+    })
+  }
 }

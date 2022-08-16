@@ -34,5 +34,7 @@ export class AforoService {
   aforoTotal(){
     return this.httpClient.get(this.API_ENDPOINT + '/aforo');
   }
-
+  inventarioAforo(sa_id:any,rc_fechaDesde:any,rc_fechaHasta:any){
+    return this.httpClient.get(this.API_ENDPOINT + '/inventario_aforo/'+sa_id+'_'+rc_fechaDesde+'_'+rc_fechaHasta);
+  }
 }
