@@ -112,8 +112,8 @@
     <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">X</button>
   </div>
   
-  <div class="modal-body">
-    <img src="https://apirestvh.herokuapp.com/uploads/{{menus.men_foto}}" alt="">
+  <div class="modal-body" *ngFor="let comprobante of comprobante">
+    <img src="https://apirestvh.herokuapp.com/uploads/{{comprobante.rc_comprobante}}" alt="">
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-success" (click)="modal.close()">OK!</button>

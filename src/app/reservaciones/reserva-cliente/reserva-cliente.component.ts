@@ -19,7 +19,8 @@ export class ReservaClienteComponent implements OnInit {
   public validador: any;
   cedula: any;
   searchText: any;
-
+  comprobante:any;
+  rc_id:any;
   rc_fechaDesde: any;
   rc_fechaHasta: any;
   fileName = 'reservaCliente.xlsx';
@@ -35,7 +36,11 @@ export class ReservaClienteComponent implements OnInit {
 
   open(contenido:any){
     this.modal.open(contenido, {size:'lg'});
-    
+    this.ReservaClienteService.verComprobante(this.rc_id).subscribe(data=>{
+      this.comprobante=data;
+    },error=> {
+      console.log(error);
+    })
   }
 
   getReservaCliente() {
