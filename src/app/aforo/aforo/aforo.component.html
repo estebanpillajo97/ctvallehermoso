@@ -43,15 +43,36 @@
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-button class="btn btn-outline-success" *ngIf="salones.sa_estado=='Activo'"
-          (click)="inactivarSalones(salones.sa_id)">
-          <i class="fa fa-toggle-on fa-lg"></i> Activo
-        </button>
-        <button mat-button class="btn btn-outline-danger" *ngIf="salones.sa_estado=='Inactivo'"
-          (click)="activarSalones(salones.sa_id)">
-          <i class="fa fa-toggle-off fa-lg"></i> Inactivo
-        </button>
+            (click)="inactivarSalones(salones.sa_id)">
+            <i class="fa fa-toggle-on fa-lg"></i> Activo
+          </button>
+          <button mat-button class="btn btn-outline-danger" *ngIf="salones.sa_estado=='Inactivo'"
+            (click)="activarSalones(salones.sa_id)">
+            <i class="fa fa-toggle-off fa-lg"></i> Inactivo
+          </button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+<br>
+<div class="col">
+  <h1>Aforo por salones</h1>
+  <p></p>
+  <div class="row">
+    <div class="row input-group">
+      <div class="col-sm-2">
+        <label for="">Fecha desde</label>
+        <input type="date" name="" id="" class="form-control">
+      </div>
+      <div class="col-sm-2">
+        <label for="">Fecha hasta</label>
+        <input type="date" name="" id="" class="form-control">
+      </div>
+      <div class="col-sm-1">
+        <label for=""> </label>
+        <button mat-button class="btn btn-outline-primary"><i class="fa fa-search fa-lg"></i>
+          Filtrar</button>
+      </div>
+    </div>
+  </div>
