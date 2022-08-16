@@ -59,7 +59,8 @@
     <div class="row input-group">
         <div class="col-sm-6">
             <label for="">Comprobante</label>
-            <input type="file" name="" id="" class="form-control">
+            <input type="file" name="rc_comprobante" id="rc_comprobante" class="form-control" 
+            formControlName="rc_comprobante" (change)="uploadImage($event)">
         </div>
         <div class="col-sm-4">
             <label for="">Salón</label>
