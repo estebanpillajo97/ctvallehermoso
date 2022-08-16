@@ -67,7 +67,7 @@
         <th scope="col">Tipo Reserva</th>
         <th scope="col">Fecha / Hora</th>
         <th scope="col"># Personas</th>
-        <th scope="col">Salón</th>
+        <th scope="col">Salon</th>
         <th scope="col">Descripción</th>
         <th scope="col">Opciones</th>
       </tr>
@@ -76,7 +76,7 @@
       <tr *ngFor="let reservaCliente of reservaCliente | paginate: { itemsPerPage: 10, currentPage: p }">
 
         <th>{{reservaCliente.rc_id}}</th>
-        <td><button class="btn btn-outline-secondary" (click)="open(contenido)">Ver Comprobante</button></td>
+        <td><img src="https://apirestvh.herokuapp.com/uploads/{{comprobante.rc_comprobante}}" alt="" height="150px" width="150px"></td>
         <td>{{reservaCliente.rc_nombreCliente}}</td>
         <td>{{reservaCliente.rc_cedula}}</td>
         <td>{{reservaCliente.tc_tipoCedula}}</td>
@@ -84,7 +84,7 @@
         <td>{{reservaCliente.res_nombre}}</td>
         <td>{{reservaCliente.rc_fecha}} {{reservaCliente.rc_hora}}</td>
         <td>{{reservaCliente.np_numeroPersonas}}</td>
-        <td>{{reservaCliente.sa_id}}</td>
+        <td>{{reservaCliente.sa_nombre}}</td>
         <td>{{reservaCliente.rc_descripcion}}</td>
         <td>
           <button mat-button class="btn btn-outline-warning" routerLink="/activar_reservas/{{reservaCliente.rc_id}}">
@@ -105,30 +105,3 @@
 
 </div>
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
-
-<ng-template #contenido let-modal>
-  <div class="modal-header">
-    <h2 class="modal-title">Comprobante</h2>
-    <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">X</button>
-  </div>
-  
-  <div class="modal-body">
-    <table class="table" *ngFor="let comprobante of comprobante">
-      <thead class="text-center">
-        <tr>
-          <th scope="col">Comprobante</th>
-        </tr>
-      </thead>
-      <tbody class="text-center">
-        <tr>
-          <td>
-            <img class="img" src="https://apirestvh.herokuapp.com/uploads/{{comprobante.rc_comprobante}}" alt="" height="250px" width="250px">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-success" (click)="modal.close()">OK!</button>
-  </div>
-</ng-template>
