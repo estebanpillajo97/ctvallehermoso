@@ -9,6 +9,7 @@ export interface EventoClientes{
     nn_id:number;
     ec_fecha:Date;
     ec_hora:string;
+    ec_comprobante:string;
     ec_descripcion:string;
     ec_estado:string;
     sm_id:number;
