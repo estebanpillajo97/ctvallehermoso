@@ -59,7 +59,7 @@ export class EventosComponent implements OnInit {
         let position = 0;
         PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
         
-        PDF.save('tipoEventos.pdf');
+        PDF.save('tipos_eventos.pdf');
     });
   }
 
